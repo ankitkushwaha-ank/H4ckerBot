@@ -11,7 +11,6 @@ topics = {
         ("⚙️ Advanced Hacking", "advanced"),
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
-        ("🛠️ Tools & Installation", "tools"),
     ],
 
     "basic": [
