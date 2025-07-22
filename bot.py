@@ -1,8 +1,11 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 import difflib
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
-TOKEN = '8190208521:AAH0tcqXs7xu8CltqFdFAZDOvc-YSnsDbEc'
+TOKEN = os.getenv("BOT_TOKEN")
 
 # Topics configuration
 topics = {
