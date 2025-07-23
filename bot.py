@@ -844,11 +844,20 @@ async def keyword_responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Not found
     await update.message.reply_text("❌ I couldn't find info on that. Try typing a valid hacking keyword or use /start.")
 
+async def dynamic_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    command = update.message.text[1:].lower()  # remove `/` and lowercase
+    if command in content:
+        await update.message.reply_text(content[command], parse_mode="Markdown")
+    else:
+        await update.message.reply_text("❌ I don't have content for that command.")
+
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(handle_buttons))
+    for key in content.keys():
+        app.add_handler(CommandHandler(key, dynamic_command_handler))
 
-    print("✅ H4cker Bot is running...")
+    print("🚀 H4cker Bot is running...")
     app.run_polling()
