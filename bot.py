@@ -865,12 +865,24 @@ async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         disable_web_page_preview=True
     )
 
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "*🆘 Help Menu:*\n\n"
+        "Use the following commands to interact with the bot:\n"
+        "- `/start`: Start the bot and see main topics\n"
+        "- `/owner`: Get information about the bot owner\n"
+        "- `/help`: Show this help message\n"
+        "- Type keywords like 'nmap', 'linux command', etc. to get quick tips\n"
+        "- Use commands like `/day1`, `/day2`, etc. for daily learning content",
+        parse_mode="Markdown"
+    )
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_handler(CommandHandler("owner", owner_info))
+    app.add_handler(CommandHandler("help", help_command))
 
     for key in content.keys():
         app.add_handler(CommandHandler(key, dynamic_command_handler))
