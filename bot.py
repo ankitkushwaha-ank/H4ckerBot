@@ -851,11 +851,27 @@ async def dynamic_command_handler(update: Update, context: ContextTypes.DEFAULT_
     else:
         await update.message.reply_text("❌ I don't have content for that command.")
 
+async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        "*👨‍💻 Bot Owner Details:*\n\n"
+        "*Name:* Ankit kushwaha\n"
+        "*Role:* Ethical Hacker & Developer\n"
+        "*Telegram:* [@H4cker_ank](https://t.me/H4cker_ank)\n"
+        "*GitHub:* [github.com/ankitkushwaha-ank](https://github.com/ankitkushwaha-ank)\n"
+        "*Email:* Ankitkushwaha.ank@gmail.com\n"
+        "*About Me:* I created this bot to help students learn ethical hacking from beginner to advanced level using practical examples.\n\n"
+        "_Keep learning, stay curious, and hack the right way!_ 🛡️💻",
+        parse_mode="Markdown",
+        disable_web_page_preview=True
+    )
+
 
 if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(handle_buttons))
+    app.add_handler(CommandHandler("owner", owner_info))
+
     for key in content.keys():
         app.add_handler(CommandHandler(key, dynamic_command_handler))
 
