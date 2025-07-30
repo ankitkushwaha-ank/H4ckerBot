@@ -1517,8 +1517,8 @@ async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         "👩‍💻 *Aayushi Kumari*\n"
         "• *Role:* Security Researcher | Cybersecurity Enthusiast\n"
-        "• *Telegram:* [@OutlierAashi](https://t.me/@OutlierAashi)\n"
-        "• *GitHub:* [github.com/Aashi-code77)](https://github.com/Aashi-code77)\n"
+        "• *Telegram:* [@OutlierAashi](https://t.me/OutlierAashi)\n"
+        "• *GitHub:* [github.com/Aashi-code77](https://github.com/Aashi-code77)\n"
         "• *Email:* pandaoutlier@gmail.com\n\n"
 
         "💡 *About:* We created *H4cker Bot* to make cybersecurity learning accessible, structured, and fun. This bot provides a 30-day roadmap, tool-based tutorials, and career guidance for aspiring ethical hackers.\n\n"
