@@ -1517,7 +1517,7 @@ async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         "👩‍💻 *Aayushi Kumari*\n"
         "• *Role:* Security Researcher | Cybersecurity Enthusiast\n"
-        "• *Telegram:* [@OutlierAashi](https://t.me/OutlierAashi)\n"
+        "• *Telegram:* [@Outlier](https://t.me/)\n"
         "• *GitHub:* [github.com/Aashi-code77](https://github.com/Aashi-code77)\n"
         "• *Email:* pandaoutlier@gmail.com\n\n"
 
