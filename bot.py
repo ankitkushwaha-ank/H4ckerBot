@@ -15,7 +15,6 @@ topics = {
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
         ("🚀 Start Hacking", "start_hacking"),
-        ("📜 Ethical Hacking Roadmap", "roadmap")
     ],
 
     "basic": [
@@ -30,23 +29,25 @@ topics = {
     ],
 
     "start_hacking": [
-        ("📅 30-Day Ethical Hacking Bootcamp", "30_day_hacking"),
-        ("🎮 Game Hacking Week-5", "game_hacking_week"),
-        ("📱 Mobile Hacking Week-6", "mobile_hacking_week"),
-        ("🌐 Website Hacking Week-7", "website_hacking_week"),
+        ("📅 Start Ethical Hacking Week 1-4 ", "30_day_hacking"),
+        ("🎮 Game Hacking Week-5", "game_hacking"),
+        ("📱 Mobile Hacking Week-6", "mobile_hacking"),
+        ("🌐 Website Hacking Week-7", "website_hacking"),
         ("📶 WiFi Hacking Module Week-8", "wifi_hacking_module"),
         ("📲 Bluetooth Hacking Module Week-9", "bluetooth_hacking_module"),
-        ("🧠 Red Teaming Week-10", "red_team_week"),
-        ("🧠 Advanced Web Hacking Week-11", "advanced_web_hacking_week"),
-        ("📲 Mobile Reverse Engineering Week-12", "mobile_reverse_engineering_week"),
-        ("🦠 Malware Development Week-13", "malware_development_week")
+        ("🧠 Red Teaming Week-10", "red_team"),
+        ("🕸️ Advanced Web Hacking Week-11", "advanced_web_hacking"),
+        ("📲 Mobile Reverse Engineering Week-12", "mobile_reverse_engineering"),
+        ("🦠 Malware Development Week-13", "malware_development"),
+        ("📜 Ethical Hacking Roadmap 1", "roadmap"),
+        ("📜 Ethical Hacking Roadmap 2", "roadmap2"),
     ],
 
     "30_day_hacking": [
         (f"📅 Day {i}", f"day{i}") for i in range(1, 31)
     ],
 
-    "game_hacking_week": [
+    "game_hacking": [
         ("🎮 Day 33: Cheat Engine Basics", "day33"),
         ("📱 Day 34: Game Guardian Android", "day34"),
         ("🧩 Day 35: Unity Game Modding", "day35"),
@@ -56,7 +57,7 @@ topics = {
         ("🛡️ Day 39: Ethics & Anti-Cheat", "day39")
     ],
 
-    "mobile_hacking_week": [
+    "mobile_hacking": [
         ("📱 Day 40: Android Internals & Lab Setup", "day40"),
         ("🗂️ Day 41: Static Analysis of APKs", "day41"),
         ("🧪 Day 42: Dynamic Analysis & Frida Hooking", "day42"),
@@ -66,7 +67,7 @@ topics = {
         ("🧠 Day 46: Advanced Attacks & Disclosure", "day46")
     ],
 
-    "website_hacking_week": [
+    "website_hacking": [
         ("🌐 Day 47: Intro to Website Hacking", "day47"),
         ("🛠️ Day 48: HTML & JS Recon", "day48"),
         ("🔓 Day 49: Authentication Bypass", "day49"),
@@ -89,7 +90,7 @@ topics = {
         ("🛠️ Day 60: Bluetooth Exploitation & Payloads", "day60")
     ],
 
-    "red_team_week": [
+    "red_team": [
         ("🧠 Day 61: CrackMapExec & AD Enumeration", "day61"),
         ("📡 Day 62: Lateral Movement Techniques", "day62"),
         ("🎯 Day 63: Custom Payload Development", "day63"),
@@ -99,7 +100,7 @@ topics = {
         ("🚨 Day 67: Red Team Ops + Blue Team Detection", "day67")
     ],
 
-    "advanced_web_hacking_week": [
+    "advanced_web_hacking": [
         ("🧠 Day 68: Advanced SQL Injection & WAF Bypass", "day68"),
         ("🌐 Day 69: SSRF & Internal Services Exploitation", "day69"),
         ("📄 Day 70: XXE (XML External Entities)", "day70"),
@@ -109,7 +110,7 @@ topics = {
         ("📦 Day 74: Advanced Burp Suite & Automation", "day74")
     ],
 
-    "mobile_reverse_engineering_week": [
+    "mobile_reverse_engineering": [
         ("📲 Day 75: APK Structure & Tools Setup", "day75"),
         ("🔍 Day 76: Static Analysis with JADX & apktool", "day76"),
         ("🔓 Day 77: Smali Code & Method Tracing", "day77"),
@@ -119,7 +120,7 @@ topics = {
         ("🎯 Day 81: Full App Exploit & Report Creation", "day81")
     ],
 
-    "malware_development_week": [
+    "malware_development": [
         ("🧬 Day 82: Malware Types & Lab Setup", "day82"),
         ("💥 Day 83: Payload Development with msfvenom", "day83"),
         ("🧪 Day 84: Writing Custom Trojans in Python", "day84"),
@@ -163,14 +164,140 @@ topics = {
     "career": [
         ("Why Choose Ethical Hacking?", "why_career"),
         ("Top Ethical Hacking Certifications", "certs"),
-        ("Roadmap to Become an Ethical Hacker", "roadmap"),
         ("Job Roles & Salaries", "jobs"),
         ("Career Tips & Resources", "career_tips")
     ],
 
+    
 }
 
 content = {
+
+    "roadmap": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
+                       "This roadmap builds you from a beginner hacker to an advanced red team operator. It’s structured week-by-week, covering everything from recon to malware analysis. Each section includes practical exercises, tools, and real-world attacks.\n\n"
+
+                       "*📅 Week 1: Fundamentals & Setup*\n"
+                       "- Day 1: Intro to Ethical Hacking & Lab Setup\n"
+                       "- Day 2: Networking Essentials for Hackers\n"
+                       "- Day 3: Linux Basics for Hackers\n"
+                       "- Day 4: Bash Scripting & Automation\n"
+                       "- Day 5: Footprinting and Reconnaissance\n"
+                       "- Day 6: Scanning & Enumeration\n"
+                       "- Day 7: Vulnerability Scanning\n\n"
+
+                       "*💥 Week 2: Exploitation Core*\n"
+                       "- Day 8: Exploitation Basics with Metasploit\n"
+                       "- Day 9: Exploiting Web Apps - SQL Injection\n"
+                       "- Day 10: Cross-Site Scripting (XSS)\n"
+                       "- Day 11: File Inclusion (LFI/RFI)\n"
+                       "- Day 12: Command Injection & RCE\n"
+                       "- Day 13: Privilege Escalation Basics\n"
+                       "- Day 14: Password Cracking Techniques\n\n"
+
+                       "*📡 Week 3: Wireless, Shells & Post-Exploitation*\n"
+                       "- Day 15: Wireless Hacking Basics (WiFi)\n"
+                       "- Day 16: Reverse Shells\n"
+                       "- Day 17: Post Exploitation Techniques\n"
+                       "- Day 18: Web Shells & PHP Exploits\n"
+                       "- Day 19: Client-Side Attacks & Social Engineering\n"
+                       "- Day 20: Malware Basics & Payloads\n"
+                       "- Day 21: Windows Hacking Techniques\n\n"
+
+                       "*🔐 Week 4: Advanced Skills & Real-World Practice*\n"
+                       "- Day 22: Linux Privilege Escalation\n"
+                       "- Day 23: Web App Hacking - XSS, CSRF, IDOR\n"
+                       "- Day 24: Cryptography Basics\n"
+                       "- Day 25: Bug Bounty 101\n"
+                       "- Day 26: Vulnerability Scanning & Reporting\n"
+                       "- Day 27: Malware Analysis Basics\n"
+                       "- Day 28: Red Team vs Blue Team\n"
+                       "- Day 29: Full Hack Simulation\n"
+                       "- Day 30: Graduation & Next Steps\n\n",
+
+        "roadmap2":  "*🎮 Week 5: Game Hacking*\n"
+                       "- Day 33: Cheat Engine Basics\n"
+                       "- Day 34: Game Guardian for Android\n"
+                       "- Day 35: Unity Game Modding\n"
+                       "- Day 36: IDA/Ghidra for Game Reverse Engineering\n"
+                       "- Day 37: Frida Patching Techniques\n"
+                       "- Day 38: Trainer Creation Basics\n"
+                       "- Day 39: Ethics, Detection & Anti-Cheat\n\n"
+
+                       "*📱 Week 6: Mobile Hacking*\n"
+                       "- Day 40: Android Internals & Lab Setup\n"
+                       "- Day 41: Static APK Analysis\n"
+                       "- Day 42: Dynamic Analysis with Frida\n"
+                       "- Day 43: APK Reversing & Modding\n"
+                       "- Day 44: Bypassing Root & SSL Pinning\n"
+                       "- Day 45: MobSF & Burp Interception\n"
+                       "- Day 46: Advanced Attacks & Disclosure\n\n"
+
+                       "*🌐 Week 7: Website Hacking*\n"
+                       "- Day 47: Web Hacking Basics & Surface Mapping\n"
+                       "- Day 48: HTML/JS Recon & Source Mining\n"
+                       "- Day 49: Authentication Bypass Techniques\n"
+                       "- Day 50: SQL Injection Deep Dive\n"
+                       "- Day 51: Cross-Site Scripting (XSS) & DOM Cloning\n"
+                       "- Day 52: CSRF, Clickjacking & UI Redress Attacks\n"
+                       "- Day 53: IDOR & Business Logic Bypass\n"
+                       "- Day 54: Web CTF Practice Labs\n\n"
+
+                       "*📶 Week 8: Wireless & Bluetooth Hacking*\n"
+                       "- Day 55: WiFi Modes & Monitor Setup\n"
+                       "- Day 56: WPA Handshake Cracking with Aircrack-ng\n"
+                       "- Day 57: Evil Twin Attack with Rogue APs\n"
+                       "- Day 58: Bluetooth Protocols & Tools\n"
+                       "- Day 59: Scanning & Sniffing BLE Devices\n"
+                       "- Day 60: Exploiting Bluetooth with Payloads\n\n"
+
+                       "*🚩 Week 9: Red Teaming Essentials*\n"
+                       "- Day 61: CrackMapExec & Active Directory Recon\n"
+                       "- Day 62: Lateral Movement & Pass-the-Hash\n"
+                       "- Day 63: Crafting Custom Payloads\n"
+                       "- Day 64: Evasion of Antivirus & EDR Systems\n"
+                       "- Day 65: Initial Access (Phishing, Macros, etc.)\n"
+                       "- Day 66: C2 Channels & Maintaining Access\n"
+                       "- Day 67: Full Red Team Op with Detection Tactics\n\n"
+
+                       "*🧠 Week 10: Advanced Web Hacking*\n"
+                       "- Day 68: Advanced SQLi & WAF Bypass\n"
+                       "- Day 69: SSRF & Metadata Service Exploits\n"
+                       "- Day 70: XXE - XML External Entity Attacks\n"
+                       "- Day 71: Command Injection & RCE\n"
+                       "- Day 72: SSTI & Template Injection\n"
+                       "- Day 73: Subdomain Takeover + DNS Tricks\n"
+                       "- Day 74: Burp Suite Extensions & Automation\n\n"
+
+                       "*🔍 Week 11: Mobile Reverse Engineering*\n"
+                       "- Day 75: APK Structure & Tooling\n"
+                       "- Day 76: Decompiled Static Analysis with JADX\n"
+                       "- Day 77: Smali Code Walkthroughs & Tracing\n"
+                       "- Day 78: Frida + Objection Runtime Hooking\n"
+                       "- Day 79: SSL Pinning & Root Detection Bypass\n"
+                       "- Day 80: Frida Hooks in Native Functions\n"
+                       "- Day 81: Full Mobile App Exploit & Report\n\n"
+
+                       "*🦠 Week 12: Malware Development & Analysis*\n"
+                       "- Day 82: Types of Malware & Lab Setup\n"
+                       "- Day 83: Building Payloads with msfvenom\n"
+                       "- Day 84: Writing Custom Trojans in Python\n"
+                       "- Day 85: Obfuscation, Encryption & Crypters\n"
+                       "- Day 86: EDR Evasion Techniques\n"
+                       "- Day 87: Command & Control with Flask\n"
+                       "- Day 88: Malware Analysis & IOC Extraction\n\n"
+
+                       "*📁 Bonus Tips:*\n"
+                       "- Practice in safe environments (e.g., TryHackMe, HackTheBox)\n"
+                       "- Use GitHub to track your hacks and notes\n"
+                       "- Pair this roadmap with real-world reports and CVEs\n"
+                       "- Stay updated with HackerOne, Bugcrowd, Exploit-DB\n\n"
+
+                       "*✅ Final Outcome:*\n"
+                       "- Able to perform real-world exploitation, red teaming & reporting\n"
+                       "- Ready to attempt OSCP, CRTP, PNPT, CEH, and more\n"
+                       "- Capable of hunting bugs, writing reports & creating tools\n"
+                       "- Confident in malware creation, bypasses, and mobile/web hacks\n",
+
     "basic": "*🛡️ Basic Hacking Topics:*\n\nBegin your journey into the world of ethical hacking. Choose a foundational topic to build your skills and unlock the path to becoming a cybersecurity expert.",
 
     "WIH": "*🛡️ What is Ethical Hacking?*\n\n"
@@ -1185,130 +1312,6 @@ content = {
 
     "career_tips": "*Career Tips & Resources:*\n\n- Stay updated with sites like Hacker News, Cybrary, and Exploit-DB\n- Practice on labs: TryHackMe, Hack The Box, PortSwigger Labs\n- Build a portfolio (GitHub, LinkedIn)\n- Contribute to open source security tools\n- Network with professionals via conferences & Discord communities\n- Keep learning—cybersecurity evolves fast!",
 
-    "roadmap": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
-                       "This roadmap builds you from a beginner hacker to an advanced red team operator. It’s structured week-by-week, covering everything from recon to malware analysis. Each section includes practical exercises, tools, and real-world attacks.\n\n"
-
-                       "*📅 Week 1: Fundamentals & Setup*\n"
-                       "- Day 1: Intro to Ethical Hacking & Lab Setup\n"
-                       "- Day 2: Networking Essentials for Hackers\n"
-                       "- Day 3: Linux Basics for Hackers\n"
-                       "- Day 4: Bash Scripting & Automation\n"
-                       "- Day 5: Footprinting and Reconnaissance\n"
-                       "- Day 6: Scanning & Enumeration\n"
-                       "- Day 7: Vulnerability Scanning\n\n"
-
-                       "*💥 Week 2: Exploitation Core*\n"
-                       "- Day 8: Exploitation Basics with Metasploit\n"
-                       "- Day 9: Exploiting Web Apps - SQL Injection\n"
-                       "- Day 10: Cross-Site Scripting (XSS)\n"
-                       "- Day 11: File Inclusion (LFI/RFI)\n"
-                       "- Day 12: Command Injection & RCE\n"
-                       "- Day 13: Privilege Escalation Basics\n"
-                       "- Day 14: Password Cracking Techniques\n\n"
-
-                       "*📡 Week 3: Wireless, Shells & Post-Exploitation*\n"
-                       "- Day 15: Wireless Hacking Basics (WiFi)\n"
-                       "- Day 16: Reverse Shells\n"
-                       "- Day 17: Post Exploitation Techniques\n"
-                       "- Day 18: Web Shells & PHP Exploits\n"
-                       "- Day 19: Client-Side Attacks & Social Engineering\n"
-                       "- Day 20: Malware Basics & Payloads\n"
-                       "- Day 21: Windows Hacking Techniques\n\n"
-
-                       "*🔐 Week 4: Advanced Skills & Real-World Practice*\n"
-                       "- Day 22: Linux Privilege Escalation\n"
-                       "- Day 23: Web App Hacking - XSS, CSRF, IDOR\n"
-                       "- Day 24: Cryptography Basics\n"
-                       "- Day 25: Bug Bounty 101\n"
-                       "- Day 26: Vulnerability Scanning & Reporting\n"
-                       "- Day 27: Malware Analysis Basics\n"
-                       "- Day 28: Red Team vs Blue Team\n"
-                       "- Day 29: Full Hack Simulation\n"
-                       "- Day 30: Graduation & Next Steps\n\n"
-
-                       "*🎮 Week 5: Game Hacking*\n"
-                       "- Day 33: Cheat Engine Basics\n"
-                       "- Day 34: Game Guardian for Android\n"
-                       "- Day 35: Unity Game Modding\n"
-                       "- Day 36: IDA/Ghidra for Game Reverse Engineering\n"
-                       "- Day 37: Frida Patching Techniques\n"
-                       "- Day 38: Trainer Creation Basics\n"
-                       "- Day 39: Ethics, Detection & Anti-Cheat\n\n"
-
-                       "*📱 Week 6: Mobile Hacking*\n"
-                       "- Day 40: Android Internals & Lab Setup\n"
-                       "- Day 41: Static APK Analysis\n"
-                       "- Day 42: Dynamic Analysis with Frida\n"
-                       "- Day 43: APK Reversing & Modding\n"
-                       "- Day 44: Bypassing Root & SSL Pinning\n"
-                       "- Day 45: MobSF & Burp Interception\n"
-                       "- Day 46: Advanced Attacks & Disclosure\n\n"
-
-                       "*🌐 Week 7: Website Hacking*\n"
-                       "- Day 47: Web Hacking Basics & Surface Mapping\n"
-                       "- Day 48: HTML/JS Recon & Source Mining\n"
-                       "- Day 49: Authentication Bypass Techniques\n"
-                       "- Day 50: SQL Injection Deep Dive\n"
-                       "- Day 51: Cross-Site Scripting (XSS) & DOM Cloning\n"
-                       "- Day 52: CSRF, Clickjacking & UI Redress Attacks\n"
-                       "- Day 53: IDOR & Business Logic Bypass\n"
-                       "- Day 54: Web CTF Practice Labs\n\n"
-
-                       "*📶 Week 8: Wireless & Bluetooth Hacking*\n"
-                       "- Day 55: WiFi Modes & Monitor Setup\n"
-                       "- Day 56: WPA Handshake Cracking with Aircrack-ng\n"
-                       "- Day 57: Evil Twin Attack with Rogue APs\n"
-                       "- Day 58: Bluetooth Protocols & Tools\n"
-                       "- Day 59: Scanning & Sniffing BLE Devices\n"
-                       "- Day 60: Exploiting Bluetooth with Payloads\n\n"
-
-                       "*🚩 Week 9: Red Teaming Essentials*\n"
-                       "- Day 61: CrackMapExec & Active Directory Recon\n"
-                       "- Day 62: Lateral Movement & Pass-the-Hash\n"
-                       "- Day 63: Crafting Custom Payloads\n"
-                       "- Day 64: Evasion of Antivirus & EDR Systems\n"
-                       "- Day 65: Initial Access (Phishing, Macros, etc.)\n"
-                       "- Day 66: C2 Channels & Maintaining Access\n"
-                       "- Day 67: Full Red Team Op with Detection Tactics\n\n"
-
-                       "*🧠 Week 10: Advanced Web Hacking*\n"
-                       "- Day 68: Advanced SQLi & WAF Bypass\n"
-                       "- Day 69: SSRF & Metadata Service Exploits\n"
-                       "- Day 70: XXE - XML External Entity Attacks\n"
-                       "- Day 71: Command Injection & RCE\n"
-                       "- Day 72: SSTI & Template Injection\n"
-                       "- Day 73: Subdomain Takeover + DNS Tricks\n"
-                       "- Day 74: Burp Suite Extensions & Automation\n\n"
-
-                       "*🔍 Week 11: Mobile Reverse Engineering*\n"
-                       "- Day 75: APK Structure & Tooling\n"
-                       "- Day 76: Decompiled Static Analysis with JADX\n"
-                       "- Day 77: Smali Code Walkthroughs & Tracing\n"
-                       "- Day 78: Frida + Objection Runtime Hooking\n"
-                       "- Day 79: SSL Pinning & Root Detection Bypass\n"
-                       "- Day 80: Frida Hooks in Native Functions\n"
-                       "- Day 81: Full Mobile App Exploit & Report\n\n"
-
-                       "*🦠 Week 12: Malware Development & Analysis*\n"
-                       "- Day 82: Types of Malware & Lab Setup\n"
-                       "- Day 83: Building Payloads with msfvenom\n"
-                       "- Day 84: Writing Custom Trojans in Python\n"
-                       "- Day 85: Obfuscation, Encryption & Crypters\n"
-                       "- Day 86: EDR Evasion Techniques\n"
-                       "- Day 87: Command & Control with Flask\n"
-                       "- Day 88: Malware Analysis & IOC Extraction\n\n"
-
-                       "*📁 Bonus Tips:*\n"
-                       "- Practice in safe environments (e.g., TryHackMe, HackTheBox)\n"
-                       "- Use GitHub to track your hacks and notes\n"
-                       "- Pair this roadmap with real-world reports and CVEs\n"
-                       "- Stay updated with HackerOne, Bugcrowd, Exploit-DB\n\n"
-
-                       "*✅ Final Outcome:*\n"
-                       "- Able to perform real-world exploitation, red teaming & reporting\n"
-                       "- Ready to attempt OSCP, CRTP, PNPT, CEH, and more\n"
-                       "- Capable of hunting bugs, writing reports & creating tools\n"
-                       "- Confident in malware creation, bypasses, and mobile/web hacks\n",
 
     "day1": "*📅 Day 1: Introduction to Ethical Hacking & Lab Setup*\n\n"
             "Welcome to your ethical hacking journey! Today is all about understanding the foundations and setting up your safe hacking lab using virtual machines.\n\n"
