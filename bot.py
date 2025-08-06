@@ -15,7 +15,7 @@ topics = {
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
         ("🚀 Start Hacking", "start_hacking"),
-        ("📜 Ethical Hacking Roadmap", "ethical_hacking_roadmap")
+        ("📜 Ethical Hacking Roadmap", "roadmap")
     ],
 
 
@@ -1181,15 +1181,12 @@ content = {
 
     "why_career": "*Why Choose Ethical Hacking?*\n\nEthical hacking is a high-demand skill in the cybersecurity industry. With increasing cyber threats, companies actively hire professionals to secure systems, detect vulnerabilities, and prevent data breaches.\n\nBenefits:\n- High salary potential\n- Job satisfaction from solving critical problems\n- Global career opportunities\n- Continuous learning and challenge",
 
-    "certs": "*Top Ethical Hacking Certifications:*\n\n1. CEH (Certified Ethical Hacker)\n2. OSCP (Offensive Security Certified Professional)\n3. CompTIA Security+\n4. CISSP (Certified Information Systems Security Professional)\n5. eJPT (eLearnSecurity Junior Penetration Tester)\n6. GPEN (GIAC Penetration Tester)\n\nThese validate your skills in ethical hacking, penetration testing, and network defense.",
-
-    "roadmap": "*Roadmap to Become an Ethical Hacker:*\n\n1. Learn networking basics (TCP/IP, ports, protocols)\n2. Get comfortable with Linux & terminal\n3. Understand cybersecurity concepts\n4. Learn programming (Python recommended)\n5. Study tools like Nmap, Wireshark, Metasploit\n6. Practice on platforms like Hack The Box, TryHackMe\n7. Get certified (e.g., CEH, OSCP)\n8. Start freelancing or apply for entry-level security roles",
-
+    "certs": "*Top Ethical Hacking Certifications:*\n\n1. CEH (Certified Ethical Hacker)\n2. OSCP (Offensive Security Certified Professional)\n3. CompTIA Security+\n4. CISSP (Certified Information Systems Security Professional)\n5. eJPT (eLearnSecurity Junior Penetration Tester)\n6. GPEN (GIAC Penetration Tester)\n\nThese validate your skills in ethical hacking, penetration testing, and network defense."
     "jobs": "*Job Roles & Salaries:*\n\n- 🔍 Penetration Tester: ₹6–20 LPA\n- 🔐 Security Analyst: ₹5–15 LPA\n- 🧠 Security Consultant: ₹8–25 LPA\n- 🕵️ Ethical Hacker: ₹5–18 LPA\n- 👨‍💻 Security Researcher: ₹6–22 LPA\n\nSalaries vary by skill level, certifications, and experience. Freelance ethical hackers can also earn through bug bounty programs (e.g., HackerOne, Bugcrowd).",
 
     "career_tips": "*Career Tips & Resources:*\n\n- Stay updated with sites like Hacker News, Cybrary, and Exploit-DB\n- Practice on labs: TryHackMe, Hack The Box, PortSwigger Labs\n- Build a portfolio (GitHub, LinkedIn)\n- Contribute to open source security tools\n- Network with professionals via conferences & Discord communities\n- Keep learning—cybersecurity evolves fast!",
 
-"ethical_hacking_roadmap": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
+"roadmap": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
     "This roadmap builds you from a beginner hacker to an advanced red team operator. It’s structured week-by-week, covering everything from recon to malware analysis. Each section includes practical exercises, tools, and real-world attacks.\n\n"
 
     "*📅 Week 1: Fundamentals & Setup*\n"
