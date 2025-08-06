@@ -15,7 +15,7 @@ topics = {
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
         ("🚀 Start Hacking", "start_hacking"),
-        ("📜 Ethical Hacking Roadmap", "30_day_roadmap")
+        ("📜 Ethical Hacking Roadmap", "ethical_hacking_roadmap")
     ],
 
 
@@ -4469,3 +4469,4 @@ if __name__ == '__main__':
 
     print("🚀 H4cker Bot is running...")
     app.run_polling()
+
