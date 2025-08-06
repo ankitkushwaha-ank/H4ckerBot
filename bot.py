@@ -4352,76 +4352,32 @@ content = {
 
 
 }
-import json
-import difflib
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import (
-    ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler,
-    ContextTypes, filters
-)
 
-# -- Path to store user data --
-USER_DATA_FILE = "users.json"
-
-# -- Topics and content (assume these are defined globally) --
-topics = {...}   # your topic dictionary
-content = {...}  # your content dictionary
-
-# -- Save/Load User Data --
-def load_user_data():
-    try:
-        with open(USER_DATA_FILE, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return {}
-
-def save_user_data(data):
-    with open(USER_DATA_FILE, "w") as f:
-        json.dump(data, f, indent=4)
-
-def update_progress(user_id, day):
-    users = load_user_data()
-    users.setdefault(str(user_id), {})["current_day"] = day
-    save_user_data(users)
-
-def update_last_module(user_id, module, username):
-    users = load_user_data()
-    users.setdefault(str(user_id), {})
-    users[str(user_id)]["last_module"] = module
-    users[str(user_id)]["username"] = username
-    save_user_data(users)
-
-# -- UI Keyboard Generator --
 def get_keyboard(topic):
     buttons = [[InlineKeyboardButton(text, callback_data=data)] for text, data in topics.get(topic, [])]
     if topic != "main":
         buttons.append([InlineKeyboardButton("⬅️ Back", callback_data="main")])
     return InlineKeyboardMarkup(buttons)
 
-# -- /start command handler --
+# --- /start Handler ---
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "👋 Hey! I am *H4cker Bot* 🤖\n\nI'm here to teach you Ethical Hacking. Choose a topic below:",
+        "👋 Hey! I am *H4cker Bot* 🤖\n\nI'm here to teach you Ethical Hacking and inspire your cybersecurity journey! Choose a topic below:",
         parse_mode="Markdown",
         reply_markup=get_keyboard("main")
     )
 
-# -- Greeting handler --
+# --- Greeting Handler (hi/hello) ---
 async def greet_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message.text.lower().strip()
     if msg in ["hi", "hello", "hii", "/start"]:
         await start(update, context)
 
-# -- Callback Query handler --
+# --- Callback Query Handler for Buttons ---
 async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
-    user_id = query.from_user.id
-    username = query.from_user.username or "N/A"
-    topic_key = query.data
     await query.answer()
-
-    # Save last module clicked
-    update_last_module(user_id, topic_key, username)
+    topic_key = query.data
 
     if topic_key in topics:
         await query.message.reply_text(
@@ -4430,37 +4386,43 @@ async def handle_buttons(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=get_keyboard(topic_key)
         )
     elif topic_key in content:
-        await query.message.reply_text(content[topic_key], parse_mode="Markdown")
+        await query.message.reply_text(
+            text=content[topic_key],
+            parse_mode="Markdown",
+            # reply_markup=get_keyboard("main")
+        )
     else:
         await query.message.reply_text("❌ Invalid option. Please try again.")
 
-# -- Keyword responder --
 async def keyword_responder(update: Update, context: ContextTypes.DEFAULT_TYPE):
     msg = update.message.text.lower().strip()
     if msg.startswith("/"):
-        msg = msg[1:]
+        msg = msg[1:]  # Remove command slash if present
+
+    # Check exact match
     if msg in content:
         await update.message.reply_text(content[msg], parse_mode="Markdown")
         return
 
+    # Try fuzzy match
     matches = difflib.get_close_matches(msg, content.keys(), n=1, cutoff=0.4)
     if matches:
         await update.message.reply_text(
             f"🔍 Showing result for *{matches[0]}*:\n\n{content[matches[0]]}",
             parse_mode="Markdown"
         )
-    else:
-        await update.message.reply_text("❌ I couldn't find info on that. Try using /start or typing a hacking keyword.")
+        return
 
-# -- Dynamic command handler --
+    # Not found
+    await update.message.reply_text("❌ I couldn't find info on that. Try typing a valid hacking keyword or use /start.")
+
 async def dynamic_command_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    command = update.message.text[1:].lower()
+    command = update.message.text[1:].lower()  # remove `/` and lowercase
     if command in content:
         await update.message.reply_text(content[command], parse_mode="Markdown")
     else:
         await update.message.reply_text("❌ I don't have content for that command.")
 
-# -- /owner command --
 async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "*🤖 H4cker Bot Owners & Creators:*\n\n"
@@ -4482,46 +4444,28 @@ async def owner_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         disable_web_page_preview=True
     )
 
-# -- /help command --
 async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "*🆘 Help Menu:*\n\n"
-        "Use commands:\n"
-        "/start — Main menu\n"
-        "/owner — Bot creator info\n"
-        "/help — Show help\n"
-        "Use commands like /day1, /nmap, /linux, etc. to explore topics.",
+        "Use the following commands to interact with the bot:\n"
+        "/start : Start the bot and see main topics\n"
+        "/owner : Get information about the bot owner\n"
+        "/help : Show this help message\n\n"
+        "Type keywords like 'nmap', 'linux command', etc. to get quick tips\n\n"
+        "Use commands like /day1, /day2, etc. for daily learning content",
         parse_mode="Markdown"
     )
 
-# -- /progress command --
-async def show_progress(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = str(update.effective_user.id)
-    users = load_user_data()
-    if user_id in users:
-        day = users[user_id].get("current_day", 1)
-        await update.message.reply_text(f"🚀 Your current progress: Day {day}")
-    else:
-        await update.message.reply_text("Welcome! Let's start your hacking journey! 🚀")
-
-# -- Main App Initialization --
 if __name__ == '__main__':
-    TOKEN = "YOUR_BOT_TOKEN"  # Replace with your bot token
     app = ApplicationBuilder().token(TOKEN).build()
-
-    # Commands
     app.add_handler(CommandHandler("start", start))
+    app.add_handler(CallbackQueryHandler(handle_buttons))
     app.add_handler(CommandHandler("owner", owner_info))
     app.add_handler(CommandHandler("help", help_command))
-    app.add_handler(CommandHandler("progress", show_progress))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, keyword_responder))
 
-    # Dynamic command handlers for /day1, /nmap, etc.
     for key in content.keys():
         app.add_handler(CommandHandler(key, dynamic_command_handler))
-
-    # Text messages & button callbacks
-    app.add_handler(CallbackQueryHandler(handle_buttons))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, keyword_responder))
 
     print("🚀 H4cker Bot is running...")
     app.run_polling()
