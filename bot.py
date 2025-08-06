@@ -3911,12 +3911,12 @@ content = {
     "*✅ Outcome:*\n"
     "- Able to discover, log, and analyze Bluetooth signals and behavior in your surroundings.",
 
-"day60": "*📅 Day 60: Bluetooth Exploitation & Payloads*\n\n"
+    "day60": "*📅 Day 60: Bluetooth Exploitation & Payloads*\n\n"
     "Explore how to exploit Bluetooth vulnerabilities using tools and payloads.\n\n"
     "*🧠 Topics Covered:*\n"
     "- BlueSnarfing (data theft)\n"
     "- BlueBugging (remote command access)\n"
-    -" CVEs like BlueBorne & BLESA\n"
+    "- CVEs like BlueBorne & BLESA\n"
     "- Tools: `bluesnarfer`, `spooftooph`, `Metasploit Bluetooth modules`\n\n"
     "*🛠️ Practical Tasks:*\n"
     "1. Run BlueSnarf attack (lab only):\n"
