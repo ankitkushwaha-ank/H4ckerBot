@@ -15,7 +15,7 @@ topics = {
         ("🛠️ Tools & Installation", "tools"),
         ("📈 Career & Certifications", "career"),
         ("🚀 Start Hacking", "start_hacking"),
-        ("📜 Ethical Hacking Roadmap", "roadmap_hacking")
+        ("📜 Ethical Hacking Roadmap", "roadmap")
     ],
 
     "basic": [
@@ -163,7 +163,7 @@ topics = {
     "career": [
         ("Why Choose Ethical Hacking?", "why_career"),
         ("Top Ethical Hacking Certifications", "certs"),
-        ("Roadmap to Become an Ethical Hacker", "roadmap_hacking"),
+        ("Roadmap to Become an Ethical Hacker", "roadmap"),
         ("Job Roles & Salaries", "jobs"),
         ("Career Tips & Resources", "career_tips")
     ],
@@ -1185,7 +1185,7 @@ content = {
 
     "career_tips": "*Career Tips & Resources:*\n\n- Stay updated with sites like Hacker News, Cybrary, and Exploit-DB\n- Practice on labs: TryHackMe, Hack The Box, PortSwigger Labs\n- Build a portfolio (GitHub, LinkedIn)\n- Contribute to open source security tools\n- Network with professionals via conferences & Discord communities\n- Keep learning—cybersecurity evolves fast!",
 
-    "roadmap_hacking": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
+    "roadmap": "*🧠 Complete 88-Day Ethical Hacking Roadmap*\n\n"
                        "This roadmap builds you from a beginner hacker to an advanced red team operator. It’s structured week-by-week, covering everything from recon to malware analysis. Each section includes practical exercises, tools, and real-world attacks.\n\n"
 
                        "*📅 Week 1: Fundamentals & Setup*\n"
